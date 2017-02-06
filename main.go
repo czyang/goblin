@@ -4,7 +4,6 @@ import (
 	"net/http"
 	"sort"
 	"fmt"
-	"log"
 )
 
 func main() {
@@ -33,5 +32,6 @@ func main() {
 	fmt.Println("Blog Spawn Success!")
 
 	http.Handle("/", http.FileServer(http.Dir("./static")))
-	log.Fatal(http.ListenAndServe(":8001", nil))
+	err := http.ListenAndServe(":8001", nil)
+	checkError(err)
 }
