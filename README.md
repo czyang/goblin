@@ -1,6 +1,4 @@
-# Goblin
-
-![alt text](./tmpl/assets/images/header_icon.png "Logo Title Text 1")
+# ![alt text](./tmpl/assets/images/header_icon.png "Logo Title Text 1") Goblin
 
 **My personal blog within whole code.**
 
