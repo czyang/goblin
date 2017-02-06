@@ -6,7 +6,10 @@
 
 A simplicity **static** pages generator app within minimal features which generator pages from markdown files with little extra JSON header.
 
-### Docker Instructions *(optional)*
+#### Docker Instructions *(optional)*
 docker build -t goblin .
 
 docker run -d -p 8001:8001 --name goblin <ref>
+
+#### License
+Golbin is distributed under the [MIT License](./LICENSE.txt)
