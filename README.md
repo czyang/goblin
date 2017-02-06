@@ -16,12 +16,5 @@ go get -u github.com/czyang/goblin
 
 ```
 
-#### Docker Instructions *(optional)*
-```sh
-docker build -t goblin .
-
-docker run -d -p 8001:8001 --name goblin <ref>
-```
-
 #### License
 Golbin is distributed under the [MIT License](./LICENSE.txt)
