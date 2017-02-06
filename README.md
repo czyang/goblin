@@ -1,8 +1,10 @@
 # ![alt text](./tmpl/assets/images/header_icon.png "Logo Title Text 1") Goblin
 
-**My personal blog within whole code.**
+**My personal blog within whole code.** 
 
-A simplicity **static** pages generator app within minimal features which generator pages from markdown files with little extra JSON header.
+Review it on: https://codingmelody.com
+
+Goblin is a simplicity **static** pages generator app within minimal features which generator pages from markdown files with little extra JSON header.
 
 #### Installation
 ```sh
