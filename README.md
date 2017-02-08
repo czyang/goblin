@@ -1,6 +1,6 @@
 # ![alt text](./tmpl/assets/images/header_icon.png "Logo Title Text 1") Goblin
 
-**My personal blog within whole code.** 
+**My personal blog within whole code.**
 
 Review it on: https://codingmelody.com
 
@@ -11,9 +11,8 @@ Goblin is a simplicity **static** pages generator app within minimal features wh
 # To install
 go get github.com/czyang/goblin
 
-# To update 
+# To update
 go get -u github.com/czyang/goblin
-
 ```
 
 #### License
