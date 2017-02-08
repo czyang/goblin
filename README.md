@@ -1,4 +1,4 @@
-# ![alt text](./tmpl/assets/images/header_icon.png "Logo Title Text 1") Goblin # ![travis-ci-status-icon](https://travis-ci.org/czyang/goblin.svg?branch=master "Build Status")
+# ![alt text](./tmpl/assets/images/header_icon.png "Logo Title Text 1") Goblin ![travis-ci-status-icon](https://travis-ci.org/czyang/goblin.svg?branch=master "Build Status")
 
 **My personal blog within whole code.**
 
