@@ -16,13 +16,13 @@ Jam是个人或团体赛， 一个人或一个团队在72小时内制作出一�
 
 Ludum Dare目前已经举办到第31届，该届主题为“Entire Game on One Screen”，下一届Ludum 32将在2015年4月17号举行。一年Ludum Dare大概会举办2-3次。参赛人数在逐年增加， Ludum Dare 31的主题投票人数在4000+, 最后全部提交的作品有2600+。
 
-**** ****
+---
 
 注：更详细的资料请看官网的说明。官方简介（http://ludumdare.com/compo/about-ludum-dare/）
 
 比赛规则说明（http://ludumdare.com/compo/rules/）
 
-**** ****
+---
 
 几个参加Ludum Dare 31 在微博上面认识的朋友（可能有遗漏）（欢迎补充）
 
@@ -34,6 +34,6 @@ Ludum Dare目前已经举办到第31届，该届主题为“Entire Game on One S
 
 **@**[**饶子建立志要做好游戏**](http://www.weibo.com/vivivivivivivi) [**http://www.weibo.com/vivivivivivivi**](http://www.weibo.com/vivivivivivivi)
 
-**
+---
 
 **如果想了解墙外的社区只需要在Twitter上面搜 #LudumJam 或 #LD31 标签就能找到很多。****
