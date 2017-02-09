@@ -19,9 +19,13 @@
 
 游戏下载地址：
 国服(可能已经因为无审查已经被和谐了吧，没试过)：https://itunes.apple.com/cn/app/a-xing-ren-fei-die-zhui-hui-ji/id848386594?l=zh&mt=8
+<<<<<<< HEAD
 
 台服： https://itunes.apple.com/tw/app/a-xing-ren-fei-die-zhui-hui-ji/id848386594?l=zh&mt=8
 
+=======
+台服： https://itunes.apple.com/tw/app/a-xing-ren-fei-die-zhui-hui-ji/id848386594?l=zh&mt=8
+>>>>>>> 46c53b47d266ad2bc62f95f0567025b885638640
 美服： https://itunes.apple.com/en/app/crash-of-ah/id848386594?ls=1&mt=8
 
 ![alt text](../attachment/woke-by-money/3.jpg "3")
