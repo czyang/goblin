@@ -18,14 +18,11 @@
 《啊星人飛碟墜毀記​》 - 看起來啊星人飛碟的曲速引擎出現了故障，把啊星人傳送到了一個由古老能量籠罩的星球。啊星人的飛碟堅韌無比，不過碰到神秘的石柱還是會毀壞。啊星人飛碟的自動巡航系統也出現了故障，現在已經切換到“嘴動駕駛”，請大喊“啊”來控制啊星人的飛碟，避開石柱。 Live long and prosper!
 
 游戏下载地址：
+
 国服(可能已经因为无审查已经被和谐了吧，没试过)：https://itunes.apple.com/cn/app/a-xing-ren-fei-die-zhui-hui-ji/id848386594?l=zh&mt=8
-<<<<<<< HEAD
 
 台服： https://itunes.apple.com/tw/app/a-xing-ren-fei-die-zhui-hui-ji/id848386594?l=zh&mt=8
 
-=======
-台服： https://itunes.apple.com/tw/app/a-xing-ren-fei-die-zhui-hui-ji/id848386594?l=zh&mt=8
->>>>>>> 46c53b47d266ad2bc62f95f0567025b885638640
 美服： https://itunes.apple.com/en/app/crash-of-ah/id848386594?ls=1&mt=8
 
 ![alt text](../attachment/woke-by-money/3.jpg "3")
