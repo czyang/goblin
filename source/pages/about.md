@@ -14,6 +14,11 @@
 
 A programmer based in China. Game and tech enthusiast.
 
+This blog is made by [Goblin](https://github.com/czyang/goblin)
+![alt text](../attachment/goblin_icon.png "Logo Title Text 1")
+
+It's a Minimal static pages generator Golang app which generate pages from markdown files with little extra JSON header.
+
 **Twitter** [@cz_yang](https://twitter.com/cz_yang)
 
 **Instagram** [@Czyang](https://www.instagram.com/czyang/)
