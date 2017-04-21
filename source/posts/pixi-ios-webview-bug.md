@@ -9,7 +9,9 @@
 # Strange Bug in iOS Third Party Browser
 
 I'm working on an HTML 5 web game, need to compatible with the iOS device. It's used the PIXI.js for render engine. Game detect the browser window size to suit different resolutions and different orientations for mobile. Everything works well on develop phase, but when I test it in real iOS device weird bug occurs...
+
 This game is full page display, works well on Safari browser. But in another browser like Chrome, it will get the wrong size of the current window. This happened on resize event triggered, for the mobile browser, it's orientation change. For my situation I get the windows size [width1, height1] for the first time this is correct values, the game works fine on the point. But after an orientation change I get [width2, height2] it's wrong values!! it's far more small than the real window size, and if device rotates back [width1, height1] is expected but it will get [width3, height3] also smaller wrong values. It's wired and confusing!
+
 With my friend's help who is a web dev guy, I solved the bug by a magic way. He gives me a thought wich use an invisible huge size container to inflate the page. Puff! The bug is gone!
 
 Juse add this magic code to the page:
