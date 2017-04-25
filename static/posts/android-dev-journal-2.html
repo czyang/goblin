@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Android开发资料记录(二)</title>
+  <link href="../assets/images/favicon.png" rel="icon">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/highlight/styles/tomorrow-night.css">
+  <link rel="stylesheet" href="../assets/css/font_roboto.css">
+  <script src="../assets/highlight/highlight.pack.js"></script>
+  <script src="../assets/js/jquery-3.1.1.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<header class="nav-down">
+  <div class="header-inner">
+    <ul class="header-nav">
+      <li style="margin-right:20px;">
+        <a href="#" class="header-a">
+          <img class="nav-img" src="../assets/images/header_icon.png" style="display:inline;">
+        </a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/projects.html" class="header-a">Projects</a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/archive.html" class="header-a">Archive</a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/about.html" class="header-a">About</a>
+      </li>
+      
+    </ul>
+
+    <ul id="nav-right-icons" class="header-nav" style="float: right;">
+      <li style="margin-right:15px;">
+        <a href="http://weibo.com/iycz" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/weibo.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+      <li style="margin-right:15px;">
+        <a href="https://github.com/czyang" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/github.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+      <li style="margin-right:5px;">
+        <a href="https://twitter.com/cz_yang" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/twitter.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+<div class="content">
+  <span class="title-info" style="color: #000;">Chengzhi Yang</span>
+  <span class="title-info" style="margin-left: 10px;">2011-02-25</span>
+  <h1 class="title">Android开发资料记录(二)</h1>
+  <p>如果感兴趣你可以阅读：<a href="./android-dev-journal-1.html">Android开发资料记录(一)</a></p>
+
+<hr />
+
+<p>Android Canvas 的抗锯齿(Anti-Alias)设置
+<a href="http://www.javaeye.com/topic/794505" target="_blank">http://www.javaeye.com/topic/794505</a>
+法一：直接设置Paint   paint.setAntiAlias(true);
+法二：不能设置Paint的函数可以用：
+canvas.setDrawFilter(new PaintFlagsDrawFilter(, Paint.ANTI_ALIAS_FLAG|Paint.FILTER_BITMAP_FLAG));</p>
+
+<p>原文中给出了两种方法的对比，方法二的效果是最好的。
+这两种方法都可以用在文字的渲染上。
+我在我自己的程序里面实验了下第一种方法。我的图片是一个64×64的小方块，方块一直在移动，并且有一定的旋转，用了第一种方法后锯齿效果更明显。可能是图片的原因。</p>
+
+<p>Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+这个方法也是可以开启 Paint的抗锯齿调用起来比较方便。</p>
+
+<hr />
+
+<p>一个Android的详尽教程网站
+<a href="http://www.helloandroid.com/" target="_blank">http://www.helloandroid.com/</a></p>
+
+<h2>Android的教程网站，里面有很多有用的教学文章，涵盖Android编程几乎所有方面。</h2>
+
+<p>学习Android Canvas编程的非常好的学习示例
+Lunar lander 的代码，学习Android Canvas 游戏编程的一个很好的示例。(需番羽墙)
+<a href="http://developer.android.com/resources/samples/LunarLander/index.html" target="_blank">http://developer.android.com/resources/samples/LunarLander/index.html</a>
+<a href="http://www.anddev.org/2d_tutorial-t3120.html" target="_blank">http://www.anddev.org/2d_tutorial-t3120.html</a>  有人把这个游戏代码简化了，做了一个非常简单的游戏框架。非常不错。</p>
+
+<p><strong>注意:</strong>这两个框架有个严重的BUG，就是在运行这个框架做的游戏的时候，如果有电话打进来或者你点击率home键，在从新恢复游戏的时候，游戏会崩溃，网上的解决办法都不能够完美解决。</p>
+
+<hr />
+
+<p>还有个更好的框架：看Chris pruett 的简易框架，这个项目里面包括了 简单的opengl es  和 Canvas的框架</p>
+
+<h2><a href="http://code.google.com/p/apps-for-android/source/browse/#svn%2Ftrunk%2FSpriteMethodTest" target="_blank">http://code.google.com/p/apps-for-android/source/browse/#svn%2Ftrunk%2FSpriteMethodTest</a></h2>
+
+<p>Google I/O 2010 – All Android Talk Videos</p>
+
+<p>Google I/O 2010 的全部演讲视频，有简要介绍。(youtube视频)
+<a href="http://www.anddev.org/announces/google-i-o-2010-all-android-talk-videos-t14798.html" target="_blank">http://www.anddev.org/announces/google-i-o-2010-all-android-talk-videos-t14798.html</a></p>
+
+<hr />
+
+<p>让你的Android应用在运行的时候屏幕不变暗。
+默认情况下，Android应用会在系统设定的指定时间内没有点击事件后就会把屏幕变暗，然后到一定时间就关闭屏幕。下面的代码可以让你的应用开启的时候屏幕永远处于激活状态。对于好多应用和游戏都非常有用。
+代码在：<a href="http://www.androidsnippets.org/snippets/53/" target="_blank">http://www.androidsnippets.org/snippets/53/</a>
+不要忘记在AndroidMainfest.xml 里面获取授权：</p>
+
+</div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

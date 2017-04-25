@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Android开发体会</title>
+  <link href="../assets/images/favicon.png" rel="icon">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/highlight/styles/tomorrow-night.css">
+  <link rel="stylesheet" href="../assets/css/font_roboto.css">
+  <script src="../assets/highlight/highlight.pack.js"></script>
+  <script src="../assets/js/jquery-3.1.1.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<header class="nav-down">
+  <div class="header-inner">
+    <ul class="header-nav">
+      <li style="margin-right:20px;">
+        <a href="#" class="header-a">
+          <img class="nav-img" src="../assets/images/header_icon.png" style="display:inline;">
+        </a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/projects.html" class="header-a">Projects</a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/archive.html" class="header-a">Archive</a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/about.html" class="header-a">About</a>
+      </li>
+      
+    </ul>
+
+    <ul id="nav-right-icons" class="header-nav" style="float: right;">
+      <li style="margin-right:15px;">
+        <a href="http://weibo.com/iycz" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/weibo.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+      <li style="margin-right:15px;">
+        <a href="https://github.com/czyang" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/github.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+      <li style="margin-right:5px;">
+        <a href="https://twitter.com/cz_yang" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/twitter.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+<div class="content">
+  <span class="title-info" style="color: #000;">Chengzhi Yang</span>
+  <span class="title-info" style="margin-left: 10px;">2011-04-19</span>
+  <h1 class="title">Android开发体会</h1>
+  <p>从我开始学习JAVA和Android编程到现在已经快5个月了，目前有3个免费游戏发布。去年12月份你我买了一个二手(14天机) HTC G1 ￥1200 然后开始了我的Android游戏编程。</p>
+
+<p>我现在的体会是：Android开发在某国确实很难赚钱！ 下面我描述一下我的感受，里面的内容都是感受，只不过是我这段时间以来对这个行业的了解和体会，我并没有做过任何详细的统计和调查，请选择性阅读:)</p>
+
+<h2>1.Android手机的混乱</h2>
+
+<p>这是搞技术的人一个很头疼的问题，非常多的屏幕分辨率。用Android Canvas制作的游戏还很难全屏，因为不能直接拉伸，只能自己设定各个图片的相对位置。我在制作“蛋人跳吧”的时候，开始自己用Canvas吧整个游戏都写完了，已经准备发布，在发布前用模拟器做了一下各种分辨率的测试，然后就悲剧了，无法修正的悲剧，后来只能改用AndEngine重写一遍。还有就是在制作“蛋人跳吧”的时候，我的游戏做了一半，我发现了个程序框架上的Bug，无法修复我用的是Lunar lander 那个著名的Android 开发文档里面的例子！ 这个有bug的例子尽然坚挺了多年而没有被修复过！这也浪费了我不少时间。</p>
+
+<p>手机硬件的差异还体现在我的新游戏“啊啊啪”上面，一个iPhone声控飞机的克隆游戏。里面用到了AudioRecord来获取麦克风的输入信息，这个游戏果断的在不少手机上面无法运行，在各种手机上面有不同的表现（虽然我后面增加了声音敏感度调节功能）。独立开发者不可能有那么多手机来测试的，最好情况也就3-4个，而Android系统的热卖机型那就数不清了。就算我有那么多的机型可以测试，以一个人的力量或者少数几个人的力量也需要花费非常多的精力来一个个解决这些问题。还有不少问题可能是无法解决的，跟手机硬件相关的。这点确实令人沮丧。</p>
+
+<h2>2.Android市场的混乱</h2>
+
+<p>一个游戏有很多问题，虽然你很不满意，但也可以发布出来。但Android手机市场还是有许多的问题。</p>
+
+<p>(1).谷歌Market里面如果你是某国人你就不能注册！谷歌现在越来越严格的信用卡审核制度会让你更难注册，我注册的时候还多亏有个好友在美国留学，用了他的信用卡才注册通过的。如果你不是那八个国家的人，你也无法卖你的收费下载的应用，除非有朋友在那几个国家里面，网上可以查到可以卖收费应用的国家。这是谷歌Market自己筑起的一道壁垒（先不考虑是谁逼的…）。</p>
+
+<p>(2).极度混乱的国内山寨市场。虽然国内外都有不少山寨的市场，注册和发布都比较容易，但没有几个商场的人气很高。尤其国内的市场，有不少国内市场是靠发布破解应用来增加人气的，惨遭破解的开发者有不少也是某国人，你还拿他们没办法。收费应用被破解就完了，收入肯定会大减，再在游戏的主界面里面 XX破解小组出品，如果有这种遭遇估计撞墙的心都有了。但是还有更绝的是还存在免费应用的破解..免费应用都是靠广告赚钱，有人就把里面的广告换成自己的。貌似有不少很卖座的国外游戏都被这种弄了。这是怎样一种精神呢？对了，貌似还有些可以去广告的应用。</p>
+
+<p>(3).听说国内的行货手机的系统是不准安装官方market的。官方market被XX干扰得很严重，网速极慢，经常慢到不能用或者干脆上不去！这确实是跟你实际的网速没有关系，后面就不能再说了，会出事的…</p>
+
+<h2>3.Android收入的难</h2>
+
+<p>同上所述，Android存在很严重的破解现象。不考虑这些因素对收入的影响，你还是可以继续发布你的收费应用和免费应用。</p>
+
+<p>a. 收费应用。官方market你不好收钱，只能拜托在发达国家的朋友来帮你收钱，或是使用某些不知道是否靠得住的第三方中介渠道，中介渠道还会收不菲的费用。收费应用被破解就玩完了。
+在国内貌似还有 移动联通的官方商店可以卖收费应用。我上个星期在移动MM里面发了两个去广告的收费应用，被各种理由驳回了好几次，直接还没有发成功，据其他朋友告诉我，确实很难通过审核，通过审核后，Android应用的收入并不高，而J2ME的应用到是会好好多。</p>
+
+<p>b. 免费应用。免费应用只能靠广告赚钱，Admob目前被谷歌收购后发展得很好，对于面向国内的用户就不用想了，因为各种不能说的原因，在国内是经常看不到admob广告的！国内广告商有不少，但一家比一家烂，网上多半都是那些广告商的负面评价。至于怎么烂，果合的出现解释了这点，果合是山寨adwhirl的，他是一个“壳”你可以在里面放上不同广告公司的广告，果合可以根据你的设置来决定显示哪家公司的广告，并且他会记录具体的点击信息。然后你们懂的…大家都发现果合的各种统计信息都大大高于广告公司的统计…注意是“大大”高于，其中的猫腻请大家自辨。国内广告公司据我了解到目前为止貌似还没有“敢”像Admob一样可以实时显示“请求”和“点击”数据，也就是完全不透明，每天晚上12点到5点这段时间才会显示出前一天的数据。如果数据能够实时更新，虽然自己点击广告是不道德的，但是你可以自己测试广告的运行情况，比如自己在某个时候打开自己的应用，等广告显示后点一次，然后看广告后台有没有记录这次显示和点击。这样广告公司就不能拿什么“过滤算法”“出问题”来忽悠你了。在缺少某种东西的商业环境下自己生存都成问题就不会在乎别人的死活了。如果你注意看国内一些知名应用使用的广告商，你会发现有些应用是在频繁更换广告商的，每更换一次其实很麻烦，但其中的原因估计都是被逼的。但我估计在很长一段时间内国内广告公司都不会向这个方向努力的。</p>
+
+<p>c. 林子再大全部都是“鸟”，国内各种论坛、商店只要可以下载Android应用的，首页上面永远的是那几个游戏，个把月会加个新的进来，但那个应用很可能还是 XX小鸟XX版。这是很无语也很无奈的，纯当抱怨:) .目前除了 Hiapk Gfan 论坛我不知道有什么其他途径可以给开发者展示和推广自己应用的机会。据我发布“啊啊啪”的观察，Hiapk论坛是目前国内人气最高的，发到上面的应用下载量也是最大的，Gfan论坛的服务器不好，高峰期容易当掉，但不知道什么原因里面的网友回复帖子都很积极，会有更多的反馈信息，如果版主觉得你的软件不错可能会帮你帖子的颜色变红，对于推广应用来说是很不错的。</p>
+
+<h2>4.Android市场的应用多过苹果？</h2>
+
+<p>这估计是可能的，但完全没有意义，造成这个现象的原因主要是：有非常多垃圾应用充斥着Market。什么是垃圾应用？不是人家做的不好，只不过是，一本黄色小说就能算一个应用，各种内容完全一样，只不过换了一张图片的应用实在是太多了，你发你的应用到Market里面就注定被这些应用刷走，变得石沉大海，很难让浏览market的用户看到。</p>
+
+<h2>5.Android开发的难</h2>
+
+<p>这方面的难处主要是在于手机设备的多样化，很多方面需要权衡。目前为止，如果你想开发一个3D大作，那就意味着你会失去很大一部分用户，性能要求越高失去的用户数就越多。</p>
+
+<p>Android的主要开发语言是Java，这没有什么不好的，相比起C++有更高的开发速度，更适合小工作室和个人开发者。</p>
+
+<p>因为Android有太多民间和官方系统，你的程序有不大的可能性会在不同系统上出现差异，这很可能是无法靠程序解决的。</p>
+
+<p>话说谷歌自己开发的一些应用也会存在兼容问题，我的G1运行Goggles 的某个版本就出现问题，虽然后来谷歌修正了但也能看到一个复杂的应用想兼容所有手机是不可能的，兼容大部分是很难的。</p>
+
+<p><a href="http://developer.android.com/" target="_blank">http://developer.android.com/</a> 这个网站是Android的官方开发资源站，正常情况下是被“强”的，虽然有离线版的文档，但这确实很打击某国的开发者。</p>
+
+<p>在Android开发中我遇到的问题我都是用Google英文搜索，而且不是每个问题都能得到解决，我都不知道那些无法或不懂“方强”的人是怎么开发下去的。现在“强”越来越强大了，再加上断网的“摇岩”，无疑给Android开发蒙上一层挥之不去的阴影。</p>
+
+<p>至于我为什么选择Android开发呢？ 只不过是我买不起苹果的设备罢了。在国内也有不少搞Android应用开发的公司或个人开发者赚了大钱，但我却看不到Android开发的前景，Android手机的用户确实是在快速的增加，但Android的手机型号、Android的系统版本、Android的病毒软件、Android破解应用却显得更有活力… 所有人都想分一杯羹却把市场搅得越来越混乱。那些夹缝中生存的个人开发者确实很艰难。</p>
+
+</div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

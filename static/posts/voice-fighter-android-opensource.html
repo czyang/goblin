@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>啊啊啪 v1.1 声音处理开源</title>
+  <link href="../assets/images/favicon.png" rel="icon">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/highlight/styles/tomorrow-night.css">
+  <link rel="stylesheet" href="../assets/css/font_roboto.css">
+  <script src="../assets/highlight/highlight.pack.js"></script>
+  <script src="../assets/js/jquery-3.1.1.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<header class="nav-down">
+  <div class="header-inner">
+    <ul class="header-nav">
+      <li style="margin-right:20px;">
+        <a href="#" class="header-a">
+          <img class="nav-img" src="../assets/images/header_icon.png" style="display:inline;">
+        </a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/projects.html" class="header-a">Projects</a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/archive.html" class="header-a">Archive</a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/about.html" class="header-a">About</a>
+      </li>
+      
+    </ul>
+
+    <ul id="nav-right-icons" class="header-nav" style="float: right;">
+      <li style="margin-right:15px;">
+        <a href="http://weibo.com/iycz" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/weibo.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+      <li style="margin-right:15px;">
+        <a href="https://github.com/czyang" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/github.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+      <li style="margin-right:5px;">
+        <a href="https://twitter.com/cz_yang" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/twitter.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+<div class="content">
+  <span class="title-info" style="color: #000;">Chengzhi Yang</span>
+  <span class="title-info" style="margin-left: 10px;">2011-04-21</span>
+  <h1 class="title">啊啊啪 v1.1 声音处理开源</h1>
+  <p>Voice Fighter for Android is Open Source! Check it out on github !</p>
+
+<p>“啊啊啪”已经发布6天了，到目前4月21日 ScoreLoop统计的最高分一共有： 12539个，估计有很多Android初学者对声音处理都比较感兴趣，所以我现在把声音处理部分的代码放上来。</p>
+
+<p>Q:为什么要发布这段代码？</p>
+
+<p>A:因为我的啊啊啪尝试用了proguard保护和优化代码，所以大部分代码都被混淆过，那些以学习为目的反编译apk的同学看起来就有点困难。所以放上下面这段声音处理的全部代码。</p>
+
+<p>Q:为什么不全部放上来？</p>
+
+<p>A:因为游戏其他部分都甚为简单不值一提，所以暂时就不放上来了。</p>
+
+<p>Q:你放上来有什么不可告人的目的吗？</p>
+
+<p>A：有的，根据我从论坛用户收到的反馈来看，下面这些机型在运行啊啊啪的时候有很多问题。 MEIZU M9（部分M9可以正常运行），索尼爱立信 x10（x10 mini pro可以运行），Acer a1，三星i9000(2.2)，Atrix 4g，LG GT540，三星 I858…… 这可以看出来Android手机的不同机型差异实在有点大。这直接导致了我在谷歌market 里面发布后，总评不到3星的悲惨情况。放上这段代码喜欢能看到代码的同学引以为戒，并且能够找到好的方法来解决各个机型上面的差异。不然在android上面开发声控游戏是完全没有前途的。如果你有好的解决方案你可以留言或通过邮件告诉我，或者发布后通知我一下，开源是一种程序员很牛X的态度:)</p>
+
+<p>目前我自己尝试过的解决方案是加入敏感度调节，但是收效甚微。我想到的另一种方案是：在游戏第一次开始的时候叫用户发出“啊” 和 “啪”的声音，记录下来，平均处理一下，游戏中就使用处理后的值，这种方法应该很不错，我可能会在之后尝试一下这个方法。</p>
+
+<p>免责申明：下面的这段代码你可以随意使用，包括可以使用在商业程序中，但是我不能保证程序代码的稳定性和安全性，你使用这段代码就代表你要为所有这段代码带来的后果负全部责任。</p>
+
+<p>源码下载：</p>
+
+<p>Recorder.java</p>
+
+<hr />
+
+<p>更新：代码已经全部提交到:</p>
+
+<p><a href="https://github.com/czyang/Voice-Fighter-Android" target="_blank">https://github.com/czyang/Voice-Fighter-Android</a></p>
+
+</div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
