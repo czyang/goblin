@@ -21,7 +21,7 @@ func SpawnArchive(posts []Post, config Config) {
 	t, err := template.ParseFiles("tmpl/archive_layout.html")
 	checkError(err)
 
-	archivePage := ArchivePage {
+	archivePage := ArchivePage{
 		Title: "Archive",
 		Posts: posts,
 	}

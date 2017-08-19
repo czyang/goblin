@@ -1,8 +1,8 @@
 package main
 
 import (
-	"os"
 	"io"
+	"os"
 	"path/filepath"
 )
 
@@ -76,7 +76,8 @@ func CopyAssetsToStaticFolder() {
 }
 
 func CreateFolder(path string, mode os.FileMode) {
-	_, err := os.Stat(path); os.IsNotExist(err)
+	_, err := os.Stat(path)
+	os.IsNotExist(err)
 
 	err = os.Mkdir(path, mode)
 	checkError(err)

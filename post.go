@@ -88,13 +88,13 @@ func SpawnStaticPosts(posts []Post, config Config) {
 		if !ok {
 			panic("No caller information")
 		}
-		pathString := path.Join(path.Dir(filename), "./static/posts/" + v.MetaData.Permanent + ".html")
+		pathString := path.Join(path.Dir(filename), "./static/posts/"+v.MetaData.Permanent+".html")
 		f, err := os.Create(pathString)
 		checkError(err)
 		t, err := template.ParseFiles("tmpl/post_layout.html")
 		checkError(err)
 		t.Execute(f, struct {
-			Post *Post
+			Post   *Post
 			Config *Config
 		}{&v, &config})
 

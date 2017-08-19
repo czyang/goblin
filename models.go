@@ -50,5 +50,3 @@ type Config struct {
 type Posts []Post
 
 type Pages []Page
-
-
