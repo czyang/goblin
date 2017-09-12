@@ -8,8 +8,8 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"runtime"
 	"time"
+
 )
 
 // Sort posts.
@@ -84,14 +84,10 @@ func GetPosts() map[string]Post {
 
 func SpawnStaticPosts(posts []Post, config Config) {
 	for _, v := range posts {
-		_, filename, _, ok := runtime.Caller(0)
-		if !ok {
-			panic("No caller information")
-		}
-		pathString := path.Join(path.Dir(filename), "./static/posts/"+v.MetaData.Permanent+".html")
+		pathString := path.Join(workingPath, "./static/posts/" + v.MetaData.Permanent + ".html")
 		f, err := os.Create(pathString)
 		checkError(err)
-		t, err := template.ParseFiles("tmpl/post_layout.html")
+		t, err := template.ParseFiles("./tmpl/post_layout.html")
 		checkError(err)
 		t.Execute(f, struct {
 			Post   *Post

@@ -4,9 +4,21 @@ import (
 	"fmt"
 	"net/http"
 	"sort"
+	"flag"
+	"os"
 )
 
+var workingPath string
+
 func main() {
+	flag.Parse()
+	args := flag.Args()
+	if len(args) < 1 {
+		fmt.Println("Args error. Usage: goblin [working directory]")
+		os.Exit(1)
+	}
+	workingPath = args[0]
+
 	config := GetConfig()
 
 	postMap := GetPosts()
