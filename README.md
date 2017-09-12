@@ -1,8 +1,8 @@
 # ![alt text](./source/attachment/goblin_icon.png "Logo Title Text 1") Goblin ![travis-ci-status-icon](https://travis-ci.org/czyang/goblin.svg?branch=master "Build Status")
 
-**My personal blog within whole code and ❤️ **
+** A Golang static blog generator and holder. **
 
-Review it on: https://codingmelody.com
+Showcase: https://codingmelody.com
 
 Goblin is a **Minimal** static pages generator Golang app which generate pages from markdown files with little extra JSON header.
 
