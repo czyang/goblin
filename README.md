@@ -11,10 +11,25 @@ Goblin is a **Minimal** static pages generator Golang app which generate pages f
 #### Installation
 ```sh
 # To install
-go get github.com/czyang/goblin
-
-# To update
 go get -u github.com/czyang/goblin
+```
+
+
+#### Usage
+Copy the example folder as your site template.
+Modify config.json. 
+You sould keep the folders stract like the example.
+--- static          # Generated files.
+--- tmpl            # Your sites template.
+--- config.json     # Config file.
+--- source          # Your files.
+   \--- attachment  # Images / Downloadable files etc.
+   \--- pages       # Your custom pages. like profile page.
+   \--- posts       # Your articles write in markdown.
+
+Run Goblin like this:
+```sh
+goblin /path/to/the/template/
 ```
 
 #### License
