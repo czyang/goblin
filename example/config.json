@@ -1,0 +1,10 @@
+{
+  "nav_links" : [{"title" : "Projects", "url" : "../pages/projects.html"}, {"title" : "Archive", "url" : "../pages/archive.html"},
+    {"title" : "About", "url" : "../pages/about.html"}],
+  "twitter_url" : "https://twitter.com/cz_yang",
+  "instagram_url" : "https://www.instagram.com/czyang/",
+  "github_url" : "https://github.com/czyang",
+  "weibo_url" : "http://weibo.com/iycz",
+  "host" : "https://codingmelody.com",
+  "port" : 8001
+}
