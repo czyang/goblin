@@ -1,4 +1,6 @@
-# ![alt text](./source/attachment/goblin_icon.png "Logo Title Text 1") Goblin ![travis-ci-status-icon](https://travis-ci.org/czyang/goblin.svg?branch=master "Build Status")
+# ![alt text](./source/attachment/goblin_icon.png "Logo Title Text 1") Goblin 
+
+![travis-ci-status-icon](https://travis-ci.org/czyang/goblin.svg?branch=master "Build Status")
 
 ** A Golang static blog generator and holder. **
 
