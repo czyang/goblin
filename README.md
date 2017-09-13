@@ -21,14 +21,14 @@ go get -u github.com/czyang/goblin
 Copy the example folder as your site template.
 Modify config.json. 
 You sould keep the folders stract like the example.
-```sh
---- static          # Generated files.
---- tmpl            # Your sites template.
---- config.json     # Config file.
---- source          # Your files.
-   \--- attachment  # Images / Downloadable files etc.
-   \--- pages       # Your custom pages. like profile page.
-   \--- posts       # Your articles write in markdown.
+```yaml
+static          # Generated files.
+tmpl            # Your sites template.
+config.json     # Config file.
+source          # Your files.
+   - attachment   # Images / Downloadable files etc.
+   - pages        # Your custom pages. like profile page.
+   - posts        # Your articles write in markdown.
 ```
 
 Run Goblin like this:
