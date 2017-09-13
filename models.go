@@ -48,14 +48,7 @@ type Config struct {
 	Host  		  string	 `json:host`
 }
 
-type SiteMapItem struct {
-	Loc        string
-	Changefreq string
-	Mobile     bool
-}
 
 type Posts []Post
 
 type Pages []Page
-
-type SiteMapItems []SiteMapItem

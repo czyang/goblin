@@ -1,36 +1,79 @@
 package main
 
 import (
-	"github.com/ikeikeikeike/go-sitemap-generator/stm"
+	"github.com/snabb/sitemap"
+	"net/http"
+	"time"
+	"fmt"
+	"os"
+	"path"
 )
 
 func GenSiteMap(pages Pages, posts Posts) {
-	items := make([]SiteMapItem, 0)
+	sm := sitemap.New()
 
+	t := time.Now().UTC()
 	for _, v := range pages {
-		item := SiteMapItem{Loc:"/pages/" + v.MetaData.Permanent + ".html", Changefreq: "weekly", Mobile: true}
-		items = append(items, item)
+		sm.Add(&sitemap.URL{
+			Loc:        config.Host + "/pages/" + v.MetaData.Permanent + ".html",
+			LastMod:    &t,
+			ChangeFreq: sitemap.Weekly,
+		})
 	}
 
 	for _, v := range posts {
-		item := SiteMapItem{Loc:"/posts/" + v.MetaData.Permanent + ".html", Changefreq: "weekly", Mobile: true}
-		items = append(items, item)
+		sm.Add(&sitemap.URL{
+			Loc:        config.Host + "/posts/" + v.MetaData.Permanent + ".html",
+			LastMod:    &t,
+			ChangeFreq: sitemap.Weekly,
+		})
 	}
 
 	//index.html
-	item := SiteMapItem{Loc:"/", Changefreq: "weekly", Mobile: true}
-	items = append(items, item)
+	sm.Add(&sitemap.URL{
+		Loc:        config.Host + "/",
+		LastMod:    &t,
+		ChangeFreq: sitemap.Weekly,
+	})
 
-	sm := stm.NewSitemap()
-	sm.SetDefaultHost(config.Host)
-	sm.SetSitemapsPath("/static")
-	sm.SetPublicPath("./")
+	pathString := path.Join(workingPath, "./static/sitemap.xml")
+	f, err := os.Create(pathString)
+	checkError(err)
+	sm.WriteTo(f)
 
-	sm.Create()
+	PingSearchEngines()
+}
 
-	for _, v := range items {
-		sm.Add(stm.URL{"loc": v.Loc, "changefreq": v.Changefreq, "mobile": v.Mobile})
+// PingSearchEngines requests some ping server from it calls Sitemap.PingSearchEngines.
+// Modify from: github.com/ikeikeikeike/go-sitemap-generator/stm"
+func PingSearchEngines(urls ...string) {
+	urls = append(urls, []string{
+		"http://www.google.com/webmasters/tools/ping?sitemap=%s",
+		"http://www.bing.com/webmaster/ping.aspx?siteMap=%s",
+	}...)
+
+	bufs := len(urls)
+	does := make(chan string, bufs)
+	client := http.Client{Timeout: time.Duration(5 * time.Second)}
+
+	for _, url := range urls {
+		go func(baseurl string) {
+			url := fmt.Sprintf(baseurl, config.Host + "sitemap.xml")
+			println("Ping now:", url)
+
+			resp, err := client.Get(url)
+			if err != nil {
+				does <- fmt.Sprintf("[E] Ping failed: %s (URL:%s)",
+					err, url)
+				return
+			}
+			defer resp.Body.Close()
+
+			does <- fmt.Sprintf("Successful ping of `%s`", url)
+		}(url)
 	}
 
-	sm.Finalize().PingSearchEngines()
+	for i := 0; i < bufs; i++ {
+		println(<-does)
+	}
 }
