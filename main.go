@@ -6,6 +6,7 @@ import (
 	"sort"
 	"flag"
 	"os"
+	"strconv"
 )
 
 var workingPath string
@@ -21,7 +22,6 @@ func main() {
 	workingPath = args[0]
 
 	config = GetConfig()
-
 	postMap := GetPosts()
 	var posts []Post
 	for _, v := range postMap {
@@ -44,8 +44,9 @@ func main() {
 	SpawnIndexPage()
 	GenSiteMap(pages, posts)
 	fmt.Println("Blog Spawn Success!")
+	fmt.Println("http server started on [::]:" + strconv.Itoa(config.Port))
 
 	http.Handle("/", http.FileServer(http.Dir("./static")))
-	err := http.ListenAndServe(":8001", nil)
+	err := http.ListenAndServe(":" + strconv.Itoa(config.Port), nil)
 	checkError(err)
 }

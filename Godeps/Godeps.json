@@ -1,0 +1,20 @@
+{
+	"ImportPath": "goblin",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/russross/blackfriday",
+			"Comment": "v1.5",
+			"Rev": "4048872b16cc0fc2c5fd9eacf0ed2c2fedaa0c8c"
+		},
+		{
+			"ImportPath": "github.com/snabb/diagio",
+			"Rev": "0ef68e3dbf017308cfb79f64cbb19339e2bba549"
+		},
+		{
+			"ImportPath": "github.com/snabb/sitemap",
+			"Rev": "036d02a8f10827316f0f031c0e4bde15024ae8f0"
+		}
+	]
+}

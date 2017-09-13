@@ -46,6 +46,7 @@ type Config struct {
 	Github_Url    string     `json:github_url`
 	Weibo_Url     string     `json:weibo_url`
 	Host  		  string	 `json:host`
+	Port		  int		 `json:port`
 }
 
 
