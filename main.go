@@ -9,6 +9,7 @@ import (
 )
 
 var workingPath string
+var config Config
 
 func main() {
 	flag.Parse()
@@ -19,7 +20,7 @@ func main() {
 	}
 	workingPath = args[0]
 
-	config := GetConfig()
+	config = GetConfig()
 
 	postMap := GetPosts()
 	var posts []Post
@@ -37,10 +38,11 @@ func main() {
 	CreateFolder("./static/posts", 0777)
 	CreateFolder("./static/pages", 0777)
 	CopyAssetsToStaticFolder()
-	SpawnStaticPosts(posts, config)
-	SpawnArchive(posts, config)
-	SpawnStaticPages(pages, config)
+	SpawnStaticPosts(posts)
+	SpawnArchive(posts)
+	SpawnStaticPages(pages)
 	SpawnIndexPage()
+	GenSiteMap(pages, posts)
 	fmt.Println("Blog Spawn Success!")
 
 	http.Handle("/", http.FileServer(http.Dir("./static")))

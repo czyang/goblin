@@ -45,8 +45,17 @@ type Config struct {
 	Instagram_Url string     `json:instagram_url`
 	Github_Url    string     `json:github_url`
 	Weibo_Url     string     `json:weibo_url`
+	Host  		  string	 `json:host`
+}
+
+type SiteMapItem struct {
+	Loc        string
+	Changefreq string
+	Mobile     bool
 }
 
 type Posts []Post
 
 type Pages []Page
+
+type SiteMapItems []SiteMapItem

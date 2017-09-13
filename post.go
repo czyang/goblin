@@ -82,7 +82,7 @@ func GetPosts() map[string]Post {
 	return postMap
 }
 
-func SpawnStaticPosts(posts []Post, config Config) {
+func SpawnStaticPosts(posts []Post) {
 	for _, v := range posts {
 		pathString := path.Join(workingPath, "./static/posts/" + v.MetaData.Permanent + ".html")
 		f, err := os.Create(pathString)

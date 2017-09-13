@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 )
 
-func SpawnArchive(posts []Post, config Config) {
+func SpawnArchive(posts []Post) {
 	pathString := path.Join(workingPath, "./static/pages/"+"archive"+".html")
 	f, err := os.Create(pathString)
 	checkError(err)
@@ -44,9 +44,9 @@ func GetPages() map[string]Page {
 	return pageMap
 }
 
-func SpawnStaticPages(pages []Page, config Config) {
+func SpawnStaticPages(pages []Page) {
 	for _, v := range pages {
-		pathString := path.Join(workingPath, "./static/pages/"+v.MetaData.Permanent+".html")
+		pathString := path.Join(workingPath, "./static/pages/" + v.MetaData.Permanent + ".html")
 		f, err := os.Create(pathString)
 		checkError(err)
 		t, err := template.ParseFiles("./tmpl/page_layout.html")
