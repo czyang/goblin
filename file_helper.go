@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 )
 
+// CleanStaticFolder remove all files in static folder.
 func CleanStaticFolder() {
 	if _, err := os.Stat("./static"); os.IsNotExist(err) {
 		os.Mkdir("./static", 0777)
@@ -21,6 +22,7 @@ func CleanStaticFolder() {
 	}
 }
 
+// CopyFolder make a duplicate folder.
 func CopyFolder(srcPath string, dstPath string) (err error) {
 	srcInfo, err := os.Stat(srcPath)
 	checkError(err)
@@ -49,6 +51,7 @@ func CopyFolder(srcPath string, dstPath string) (err error) {
 	return
 }
 
+// CopyFile make a duplicate file.
 func CopyFile(srcPath string, dstPath string) (err error) {
 	src, err := os.Open(srcPath)
 	checkError(err)
@@ -70,11 +73,13 @@ func CopyFile(srcPath string, dstPath string) (err error) {
 	return
 }
 
+// CopyAssetsToStaticFolder copy assets folder to static folder.
 func CopyAssetsToStaticFolder() {
 	CopyFolder("./tmpl/assets/", "./static/assets/")
 	CopyFolder("./source/attachment/", "./static/attachment/")
 }
 
+// CreateFolder create a new folder.
 func CreateFolder(path string, mode os.FileMode) {
 	_, err := os.Stat(path)
 	os.IsNotExist(err)

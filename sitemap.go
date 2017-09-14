@@ -2,13 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/snabb/sitemap"
 	"net/http"
 	"os"
 	"path"
 	"time"
+
+	"github.com/snabb/sitemap"
 )
 
+// GenSiteMap generate sitemap.
 func GenSiteMap(pages Pages, posts Posts) {
 	sm := sitemap.New()
 
@@ -58,18 +60,18 @@ func PingSearchEngines(urls ...string) {
 
 	for _, url := range urls {
 		go func(baseurl string) {
-			url := fmt.Sprintf(baseurl, config.Host+"/sitemap.xml")
-			println("Ping now:", url)
+			pingURL := fmt.Sprintf(baseurl, config.Host+"/sitemap.xml")
+			println("Ping now:", pingURL)
 
-			resp, err := client.Get(url)
+			resp, err := client.Get(pingURL)
 			if err != nil {
 				does <- fmt.Sprintf("[E] Ping failed: %s (URL:%s)",
-					err, url)
+					err, pingURL)
 				return
 			}
 			defer resp.Body.Close()
 
-			does <- fmt.Sprintf("Successful ping of `%s`", url)
+			does <- fmt.Sprintf("Successful ping of `%s`", pingURL)
 		}(url)
 	}
 

@@ -2,7 +2,7 @@ package main
 
 import "github.com/russross/blackfriday"
 
-const blogHtmlFlags = 0 |
+const blogHTMLFlags = 0 |
 	blackfriday.HTML_USE_XHTML |
 	blackfriday.HTML_USE_SMARTYPANTS |
 	blackfriday.HTML_SMARTYPANTS_FRACTIONS |
@@ -22,10 +22,10 @@ const commonExtensions = 0 |
 	blackfriday.EXTENSION_BACKSLASH_LINE_BREAK |
 	blackfriday.EXTENSION_DEFINITION_LISTS
 
-// Custom Markdown process function for blog, inherited from MarkdownCommon.
+// MarkdownBlog Custom Markdown process function for blog, inherited from MarkdownCommon.
 func MarkdownBlog(input []byte) []byte {
 	// set up the HTML renderer
-	renderer := blackfriday.HtmlRenderer(blogHtmlFlags, "", "")
+	renderer := blackfriday.HtmlRenderer(blogHTMLFlags, "", "")
 	return blackfriday.MarkdownOptions(input, renderer, blackfriday.Options{
 		Extensions: commonExtensions})
 }

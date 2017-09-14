@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 )
 
+// SpawnArchive generate archive page from template.
 func SpawnArchive(posts []Post) {
 	pathString := path.Join(workingPath, "./static/pages/"+"archive"+".html")
 	f, err := os.Create(pathString)
@@ -29,6 +30,7 @@ func SpawnArchive(posts []Post) {
 	f.Close()
 }
 
+// GetPages get pages.
 func GetPages() map[string]Page {
 	pageMap := make(map[string]Page)
 	files, _ := filepath.Glob("./source/pages/*")
@@ -44,6 +46,7 @@ func GetPages() map[string]Page {
 	return pageMap
 }
 
+// SpawnStaticPages generate all pages.
 func SpawnStaticPages(pages []Page) {
 	for _, v := range pages {
 		pathString := path.Join(workingPath, "./static/pages/"+v.MetaData.Permanent+".html")
@@ -61,6 +64,7 @@ func SpawnStaticPages(pages []Page) {
 	}
 }
 
+// SpawnIndexPage copy the archive page as the index page.
 func SpawnIndexPage() {
 	CopyFile(workingPath+"/static/pages/archive.html", workingPath+"/static/index.html")
 }

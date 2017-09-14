@@ -24,6 +24,8 @@ func (s Posts) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
 
+// ExtractMetaJSONStr extract the page's meta data from the json string which
+// on the header of the article.
 func ExtractMetaJSONStr(bytes []byte) ([]byte, []byte) {
 	bracketCount := 0
 
@@ -40,6 +42,7 @@ func ExtractMetaJSONStr(bytes []byte) ([]byte, []byte) {
 	return nil, nil
 }
 
+// TrimTitleLine trim off the meta data string.
 func TrimTitleLine(b []byte) []byte {
 	encounterHeader := false
 	for i, v := range b {
@@ -59,12 +62,14 @@ func checkError(e error) {
 	}
 }
 
+// GetTime get the time from string.
 func GetTime(dateStr string) time.Time {
 	t, err := time.Parse("2006-01-02", dateStr)
 	checkError(err)
 	return t
 }
 
+// GetPosts get the posts from source/posts. All posts are markdown format.
 func GetPosts() map[string]Post {
 	postMap := make(map[string]Post)
 	files, _ := filepath.Glob("./source/posts/*")
@@ -81,6 +86,7 @@ func GetPosts() map[string]Post {
 	return postMap
 }
 
+// SpawnStaticPosts generate all static posts which are HTML.
 func SpawnStaticPosts(posts []Post) {
 	for _, v := range posts {
 		pathString := path.Join(workingPath, "./static/posts/"+v.MetaData.Permanent+".html")
