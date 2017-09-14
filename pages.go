@@ -46,7 +46,7 @@ func GetPages() map[string]Page {
 
 func SpawnStaticPages(pages []Page) {
 	for _, v := range pages {
-		pathString := path.Join(workingPath, "./static/pages/" + v.MetaData.Permanent + ".html")
+		pathString := path.Join(workingPath, "./static/pages/"+v.MetaData.Permanent+".html")
 		f, err := os.Create(pathString)
 		checkError(err)
 		t, err := template.ParseFiles("./tmpl/page_layout.html")
@@ -62,5 +62,5 @@ func SpawnStaticPages(pages []Page) {
 }
 
 func SpawnIndexPage() {
-	CopyFile(workingPath + "/static/pages/archive.html", workingPath + "/static/index.html")
+	CopyFile(workingPath+"/static/pages/archive.html", workingPath+"/static/index.html")
 }

@@ -1,12 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"github.com/snabb/sitemap"
 	"net/http"
-	"time"
-	"fmt"
 	"os"
 	"path"
+	"time"
 )
 
 func GenSiteMap(pages Pages, posts Posts) {
@@ -58,7 +58,7 @@ func PingSearchEngines(urls ...string) {
 
 	for _, url := range urls {
 		go func(baseurl string) {
-			url := fmt.Sprintf(baseurl, config.Host + "/sitemap.xml")
+			url := fmt.Sprintf(baseurl, config.Host+"/sitemap.xml")
 			println("Ping now:", url)
 
 			resp, err := client.Get(url)

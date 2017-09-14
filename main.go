@@ -1,11 +1,11 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net/http"
-	"sort"
-	"flag"
 	"os"
+	"sort"
 	"strconv"
 )
 
@@ -22,6 +22,7 @@ func main() {
 	workingPath = args[0]
 
 	config = GetConfig()
+
 	postMap := GetPosts()
 	var posts []Post
 	for _, v := range postMap {
@@ -47,6 +48,6 @@ func main() {
 	fmt.Println("http server started on [::]:" + strconv.Itoa(config.Port))
 
 	http.Handle("/", http.FileServer(http.Dir("./static")))
-	err := http.ListenAndServe(":" + strconv.Itoa(config.Port), nil)
+	err := http.ListenAndServe(":"+strconv.Itoa(config.Port), nil)
 	checkError(err)
 }

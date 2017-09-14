@@ -45,10 +45,9 @@ type Config struct {
 	Instagram_Url string     `json:instagram_url`
 	Github_Url    string     `json:github_url`
 	Weibo_Url     string     `json:weibo_url`
-	Host  		  string	 `json:host`
-	Port		  int		 `json:port`
+	Host          string     `json:host`
+	Port          int        `json:port`
 }
-
 
 type Posts []Post
 
