@@ -23,4 +23,64 @@
       </li>
       
       <li class="header-li">
-        <a href="
+        <a href="../pages/projects.html" class="header-a">Projects</a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/archive.html" class="header-a">Archive</a>
+      </li>
+      
+      <li class="header-li">
+        <a href="../pages/about.html" class="header-a">About</a>
+      </li>
+      
+    </ul>
+
+    <ul id="nav-right-icons" class="header-nav" style="float: right;">
+      <li style="margin-right:15px;">
+        <a href="http://weibo.com/iycz" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/weibo.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+      <li style="margin-right:15px;">
+        <a href="https://github.com/czyang" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/github.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+      <li style="margin-right:5px;">
+        <a href="https://twitter.com/cz_yang" class="header-a" target="_blank">
+          <img class="nav-img" src="../assets/images/twitter.png" width="38" height="38" style="display:inline;">
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+<div class="content">
+  <span class="title-info" style="color: #000;">Chengzhi Yang</span>
+  <span class="title-info" style="margin-left: 10px;">2016-12-01</span>
+  <h1 class="title">Git Merge Multiple Projects into One</h1>
+  <p>The steps list below is merge project-b into project-a, follow and repeat these steps you can merge up projects into one repository.</p>
+
+<pre><code class="language-sh">cd path/to/project-a
+git remote add project-b https://url/to/project-b.git
+git fetch project-b
+git merge —allow-unrelated-histories project-b/master
+git remote remove project-b
+</code></pre>
+
+<p>Now project-b&rsquo;s files will place at project-a&rsquo;s folder, if you want move all project-b&rsquo;s files into a independent folder you need extra work.</p>
+
+<p>Assume project-a is a empty project before we merge it with project-b. We can simply move all files exclude .git folder to project-b&rsquo;s folder.</p>
+
+<pre><code class="language-sh">mkdir project-b-folder
+git mv !(.git|project-b-folder) project-b-folder
+git commit -m &quot;Move project-b files to its folder.&quot;
+</code></pre>
+
+<p>Reference:
+<a href="http://stackoverflow.com/a/10548919/522915" target="_blank">http://stackoverflow.com/a/10548919/522915</a></p>
+
+</div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

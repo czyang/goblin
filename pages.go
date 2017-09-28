@@ -57,10 +57,12 @@ func SpawnStaticPages(pages []Page) {
 		t, err := template.ParseFiles("./tmpl/page_layout.html")
 		checkError(err)
 
-		t.Execute(f, struct {
+		if err := t.Execute(f, struct {
 			Page   *Page
 			Config *Config
-		}{&v, &config})
+		}{&v, &config}); err != nil {
+			panic(err)
+		}
 
 		f.Close()
 	}

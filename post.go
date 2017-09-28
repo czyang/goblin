@@ -94,10 +94,12 @@ func SpawnStaticPosts(posts []Post) {
 		checkError(err)
 		t, err := template.ParseFiles("./tmpl/post_layout.html")
 		checkError(err)
-		t.Execute(f, struct {
+		if err := t.Execute(f, struct {
 			Post   *Post
 			Config *Config
-		}{&v, &config})
+		}{&v, &config}); err != nil {
+			panic(err)
+		}
 
 		f.Close()
 	}
