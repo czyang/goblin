@@ -21,7 +21,7 @@
           <img class="nav-img" src="../assets/images/header_icon.png" style="display:inline;">
         </a>
       </li>
-      {{ range $k, $v := .Config.Nav_links }}
+      {{ range $k, $v := .Config.NavLinks }}
       <li class="header-li">
         <a href="{{ $v.Url }}" class="header-a">{{ $v.Title }}</a>
       </li>

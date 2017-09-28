@@ -24,26 +24,26 @@
           <img class="nav-img" src="../assets/images/header_icon.png" style="display:inline;">
         </a>
       </li>
-      {{ range $k, $v := .Config.Nav_links }}
+      {{ range $k, $v := .Config.NavLinks }}
       <li class="header-li">
-        <a href="{{ $v.Url }}" class="header-a">{{ $v.Title }}</a>
+        <a href="{{ $v.URL }}" class="header-a">{{ $v.Title }}</a>
       </li>
       {{ end }}
     </ul>
 
     <ul id="nav-right-icons" class="header-nav" style="float: right;">
       <li style="margin-right:15px;">
-        <a href="{{ .Config.Weibo_Url }}" class="header-a" target="_blank">
+        <a href="{{ .Config.WeiboURL }}" class="header-a" target="_blank">
           <img class="nav-img" src="../assets/images/weibo.png" width="38" height="38" style="display:inline;">
         </a>
       </li>
       <li style="margin-right:15px;">
-        <a href="{{ .Config.Github_Url }}" class="header-a" target="_blank">
+        <a href="{{ .Config.GithubURL }}" class="header-a" target="_blank">
           <img class="nav-img" src="../assets/images/github.png" width="38" height="38" style="display:inline;">
         </a>
       </li>
       <li style="margin-right:5px;">
-        <a href="{{ .Config.Twitter_Url }}" class="header-a" target="_blank">
+        <a href="{{ .Config.TwitterURL }}" class="header-a" target="_blank">
           <img class="nav-img" src="../assets/images/twitter.png" width="38" height="38" style="display:inline;">
         </a>
       </li>

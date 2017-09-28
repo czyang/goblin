@@ -22,10 +22,12 @@ func SpawnArchive(posts []Post) {
 		Posts: posts,
 	}
 
-	t.Execute(f, struct {
+	if err := t.Execute(f, struct {
 		Archive *ArchivePage
 		Config  *Config
-	}{&archivePage, &config})
+	}{&archivePage, &config}); err != nil {
+		panic(err)
+	}
 
 	f.Close()
 }
