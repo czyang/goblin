@@ -51,7 +51,9 @@
   <span class="title-info" style="color: #000;">{{ .Post.MetaData.Author }}</span>
   <span class="title-info" style="margin-left: 10px;">{{ .Post.CreateDate.Format "2006-01-02" }}</span>
   <h1 class="title">{{ .Post.MetaData.Title }}</h1>
-  {{ .Post.Content }}
+  <div class="paragraph">
+    {{ .Post.Content }}
+  </div>
 </div>
 <script src="../assets/js/main.js"></script>
 </body>

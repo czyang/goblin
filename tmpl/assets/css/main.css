@@ -59,6 +59,10 @@ p {
   letter-spacing: -.003em;
 }
 
+.paragraph {
+    text-align: justify;
+}
+
 .title {
     margin-top: 4px;
 }

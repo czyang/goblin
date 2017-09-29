@@ -59,7 +59,8 @@
   <span class="title-info" style="color: #000;">Chengzhi Yang</span>
   <span class="title-info" style="margin-left: 10px;">2010-09-23</span>
   <h1 class="title">用gdb调试mpi程序的一些心得</h1>
-  <p>Linux下MPI (Message Passage Interface) 的程序不太好调试，在windows下vs2005以上的IDE有集成的简便MPI调试工具，没有用过，有兴趣的可以试验一下。下面总结了一些最近在用MPI和c语言写程序时的调试经验（Ubuntu环境，c语言, mpich 1.2.7）。</p>
+  <div class="paragraph">
+    <p>Linux下MPI (Message Passage Interface) 的程序不太好调试，在windows下vs2005以上的IDE有集成的简便MPI调试工具，没有用过，有兴趣的可以试验一下。下面总结了一些最近在用MPI和c语言写程序时的调试经验（Ubuntu环境，c语言, mpich 1.2.7）。</p>
 
 <p>需要注意的几个小问题
 在编译程序的时候 –g 是一定要加的，不然在gdb调试的时候可能会报类似“source is not available”的错误。开始我调程序的时候我都把我的程序的每个调试版本，分别发送到集群中的每台机器上面，然后在mpirun –machinefile host –np 3 myprogram 运行我的程序，这种方法没有效率，只能在最后记录实验结果的时候或者最后调试阶段才能用。有效率的方式是 mpirun –np 3 myprogram 在本机直接运行程序，这样mpi就会在本机开3个myprogram的进程，这样不接网线都可以方便的调试mpi的程序。这是几个小问题，下面切入关键部分。</p>
@@ -85,6 +86,7 @@ printf ( “\n%d\n”, pid );
 
 <p>推荐大家读这篇：<a href="http://users.atw.hu/linuxclusters/highperlinuxc-chp-16-sect-7.html" target="_blank">Using gdb and ddd with MPI</a></p>
 
+  </div>
 </div>
 <script src="../assets/js/main.js"></script>
 </body>
