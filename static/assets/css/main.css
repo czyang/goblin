@@ -61,6 +61,7 @@ p {
 
 .paragraph {
     text-align: justify;
+    word-break: break-all;
 }
 
 .title {
