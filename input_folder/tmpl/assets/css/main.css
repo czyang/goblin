@@ -45,7 +45,7 @@ header {
 }
 
 a {
-    color: #019f64;
+    color: #0366d6;
     text-decoration: none;
 }
 
@@ -95,7 +95,7 @@ p {
 }
 
 .header-a:hover {
-    color: #11e5ca;
+    color: #4c627c;
 }
 
 .header-li {
@@ -125,7 +125,7 @@ p {
 
 .archive-a {
   font-size:22px;
-  color: #019f64;
+  color: #0366d6;
   text-decoration: none;
   font-weight: 500;
   width: 600px;
