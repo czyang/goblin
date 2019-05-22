@@ -124,20 +124,25 @@ p {
 }
 
 .archive-a {
-    font-size:22px;
-    color: #019f64;
-    text-decoration: none;
-    font-weight: 500;
-    width: 600px;
+  font-size:22px;
+  color: #019f64;
+  text-decoration: none;
+  font-weight: 500;
+  width: 600px;
 }
 
 code {
-    font-size: 14px;
+  font-size: 14px;
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
 }
 
 .archive-li {
-    margin-top: 10px;
-    list-style-type: none;
+  margin-top: 10px;
+  list-style-type: none;
 }
 
 hr {
