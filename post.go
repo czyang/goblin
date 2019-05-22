@@ -69,10 +69,11 @@ func GetTime(dateStr string) time.Time {
 	return t
 }
 
-// GetPosts get the posts from source/posts. All posts are markdown format.
-func GetPosts() map[string]Post {
+// GetPosts get the posts from input/posts. All posts are markdown format.
+func GetPosts(inputPath string) map[string]Post {
 	postMap := make(map[string]Post)
-	files, _ := filepath.Glob("./source/posts/*")
+	files, _ := filepath.Glob(inputPath + "/posts/*")
+
 	for _, f := range files {
 		fileRead, _ := ioutil.ReadFile(f)
 		jsonHeadBytes, mdBytes := ExtractMetaJSONStr(fileRead)
@@ -80,6 +81,10 @@ func GetPosts() map[string]Post {
 		postMeta := new(PostMeta)
 		json.Unmarshal(jsonHeadBytes, &postMeta)
 		articleContent := template.HTML(string(MarkdownBlog(mdBytes)))
+		extension := filepath.Ext(f)
+		if extension != ".md" {
+			continue
+		}
 		postMap[postMeta.Permanent] = Post{Content: articleContent, MetaData: *postMeta,
 			CreateDate: GetTime(postMeta.CreateDate), ModifyDate: GetTime(postMeta.ModifyDate)}
 	}
@@ -87,12 +92,12 @@ func GetPosts() map[string]Post {
 }
 
 // SpawnStaticPosts generate all static posts which are HTML.
-func SpawnStaticPosts(posts []Post) {
+func SpawnStaticPosts(inputPath string, outputPath string, posts []Post) {
 	for _, v := range posts {
-		pathString := path.Join(workingPath, "./static/posts/"+v.MetaData.Permanent+".html")
+		pathString := path.Join(outputPath, "/posts/"+v.MetaData.Permanent+".html")
 		f, err := os.Create(pathString)
 		checkError(err)
-		t, err := template.ParseFiles("./tmpl/post_layout.html")
+		t, err := template.ParseFiles(inputPath + "/tmpl/post_layout.html")
 		checkError(err)
 		if err := t.Execute(f, struct {
 			Post   *Post
@@ -100,7 +105,6 @@ func SpawnStaticPosts(posts []Post) {
 		}{&v, &config}); err != nil {
 			panic(err)
 		}
-
 		f.Close()
 	}
 }

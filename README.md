@@ -3,7 +3,7 @@
 ![travis-ci-status-icon](https://travis-ci.org/czyang/goblin.svg?branch=master "Build Status")
 [![Go Report Card](https://goreportcard.com/badge/github.com/czyang/goblin)](https://goreportcard.com/report/github.com/czyang/goblin)
 
-** A Golang static blog generator and holder. **
+** A Golang static blog generator. **
 
 Showcase: https://codingmelody.com
 
@@ -35,7 +35,7 @@ You sould keep the folders structure like the example show as below:
 
 Run Goblin like this:
 ```sh
-goblin /path/to/the/template/
+goblin -input=./input_folder -output=./output_folder
 ```
 
 #### License

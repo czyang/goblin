@@ -11,18 +11,10 @@ import (
 )
 
 // GenSiteMap generate sitemap.
-func GenSiteMap(pages Pages, posts Posts) {
+func GenSiteMap(posts Posts, outputPath string) {
 	sm := sitemap.New()
 
 	t := time.Now().UTC()
-	for _, v := range pages {
-		sm.Add(&sitemap.URL{
-			Loc:        config.Host + "/pages/" + v.MetaData.Permanent + ".html",
-			LastMod:    &t,
-			ChangeFreq: sitemap.Weekly,
-		})
-	}
-
 	for _, v := range posts {
 		sm.Add(&sitemap.URL{
 			Loc:        config.Host + "/posts/" + v.MetaData.Permanent + ".html",
@@ -38,7 +30,7 @@ func GenSiteMap(pages Pages, posts Posts) {
 		ChangeFreq: sitemap.Weekly,
 	})
 
-	pathString := path.Join(workingPath, "./static/sitemap.xml")
+	pathString := path.Join(outputPath, "/posts/sitemap.xml")
 	f, err := os.Create(pathString)
 	checkError(err)
 	sm.WriteTo(f)

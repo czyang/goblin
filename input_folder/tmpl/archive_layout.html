@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <link href="../assets/images/favicon.png" rel="icon">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div class="content">
+  <h1>Coding Melody Blog Archives</h1>
+  <em>My old and recent blogs.</em>
+  <hr>
+  <small>
+    [<a href="../index.html">homepage</a>] 
+  </small>
+  <hr>
+  <ul style="padding-left: 0;">
+    {{ range $k, $v := .Archive.Posts }}
+    <li class="archive-li">
+      <span class="title-info" style="display:inline-block;">
+        {{ $v.CreateDate.Format "2006-01-02" }}
+      </span>
+      <a href="../posts/{{ $v.MetaData.Permanent }}.html" class="archive-a" 
+        style="display:inline-block;">{{ $v.MetaData.Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  <div style="margin-bottom: 30px;"></div>
+</div>
+</body>
+</html>

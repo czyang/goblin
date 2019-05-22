@@ -9,16 +9,16 @@ import (
 	"path/filepath"
 )
 
-// SpawnArchive generate archive page from template.
-func SpawnArchive(posts []Post) {
-	pathString := path.Join(workingPath, "./static/pages/"+"archive"+".html")
+// SpawnIndex generate archive page from template.
+func SpawnIndex(outputPath string, inputPath string, posts []Post) {
+	pathString := path.Join(outputPath, "/posts/"+"index"+".html")
 	f, err := os.Create(pathString)
 	checkError(err)
-	t, err := template.ParseFiles("./tmpl/archive_layout.html")
+	t, err := template.ParseFiles(inputPath + "/tmpl/archive_layout.html")
 	checkError(err)
 
 	archivePage := ArchivePage{
-		Title: "Archive",
+		Title: "Index",
 		Posts: posts,
 	}
 
@@ -33,9 +33,9 @@ func SpawnArchive(posts []Post) {
 }
 
 // GetPages get pages.
-func GetPages() map[string]Page {
+func GetPages(inputPath string) map[string]Page {
 	pageMap := make(map[string]Page)
-	files, _ := filepath.Glob("./source/pages/*")
+	files, _ := filepath.Glob(inputPath + "/pages/*")
 	for _, f := range files {
 		fileRead, _ := ioutil.ReadFile(f)
 		jsonHeadBytes, mdBytes := ExtractMetaJSONStr(fileRead)
@@ -46,29 +46,4 @@ func GetPages() map[string]Page {
 			CreateDate: GetTime(postMeta.CreateDate), ModifyDate: GetTime(postMeta.ModifyDate)}
 	}
 	return pageMap
-}
-
-// SpawnStaticPages generate all pages.
-func SpawnStaticPages(pages []Page) {
-	for _, v := range pages {
-		pathString := path.Join(workingPath, "./static/pages/"+v.MetaData.Permanent+".html")
-		f, err := os.Create(pathString)
-		checkError(err)
-		t, err := template.ParseFiles("./tmpl/page_layout.html")
-		checkError(err)
-
-		if err := t.Execute(f, struct {
-			Page   *Page
-			Config *Config
-		}{&v, &config}); err != nil {
-			panic(err)
-		}
-
-		f.Close()
-	}
-}
-
-// SpawnIndexPage copy the archive page as the index page.
-func SpawnIndexPage() {
-	CopyFile(workingPath+"/static/pages/archive.html", workingPath+"/static/index.html")
 }

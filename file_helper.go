@@ -6,18 +6,15 @@ import (
 	"path/filepath"
 )
 
-// CleanStaticFolder remove all files in static folder.
-func CleanStaticFolder() {
-	if _, err := os.Stat("./static"); os.IsNotExist(err) {
-		os.Mkdir("./static", 0777)
-	}
-	d, err := os.Open("./static")
+// CleanFolder remove all files in a folder.
+func CleanFolder(folderPath string) {
+	d, err := os.Open(folderPath)
 	checkError(err)
 	defer d.Close()
 	names, err := d.Readdirnames(-1)
 	checkError(err)
 	for _, name := range names {
-		err = os.RemoveAll(filepath.Join("./static", name))
+		err = os.RemoveAll(filepath.Join(folderPath, name))
 		checkError(err)
 	}
 }
@@ -46,7 +43,6 @@ func CopyFolder(srcPath string, dstPath string) (err error) {
 			err = CopyFile(src, dst)
 			checkError(err)
 		}
-
 	}
 	return
 }
@@ -74,9 +70,9 @@ func CopyFile(srcPath string, dstPath string) (err error) {
 }
 
 // CopyAssetsToStaticFolder copy assets folder to static folder.
-func CopyAssetsToStaticFolder() {
-	CopyFolder("./tmpl/assets/", "./static/assets/")
-	CopyFolder("./source/attachment/", "./static/attachment/")
+func CopyAssetsToStaticFolder(inputPath string, outputPath string) {
+	CopyFolder(inputPath+"/tmpl/assets/", outputPath+"/assets/")
+	CopyFolder(inputPath+"/attachment/", outputPath+"/attachment/")
 }
 
 // CreateFolder create a new folder.

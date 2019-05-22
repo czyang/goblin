@@ -3,51 +3,33 @@ package main
 import (
 	"flag"
 	"fmt"
-	"net/http"
-	"os"
 	"sort"
-	"strconv"
 )
 
-var workingPath string
 var config Config
 
 func main() {
+	inputPathPtr := flag.String("input", "", "file path(string)")
+	outputPathPtr := flag.String("output", "", "file path(string)")
 	flag.Parse()
-	args := flag.Args()
-	if len(args) < 1 {
-		fmt.Println("Args error. Usage: goblin [working directory]")
-		os.Exit(1)
-	}
-	workingPath = args[0]
+	inputPath := *inputPathPtr
+	outputPath := *outputPathPtr
+	fmt.Println("inputPathPtr:", inputPath, "outputPathPtr:", outputPath)
 
 	config = GetConfig()
-
-	postMap := GetPosts()
+	postMap := GetPosts(inputPath)
 	var posts []Post
 	for _, v := range postMap {
 		posts = append(posts, v)
 	}
 	sort.Sort(Posts(posts))
+	CleanFolder(outputPath)
+	CreateFolder(outputPath+"/posts", 0755)
+	CopyAssetsToStaticFolder(inputPath, outputPath)
+	SpawnStaticPosts(inputPath, outputPath, posts)
+	SpawnIndex(outputPath, inputPath, posts)
 
-	pageMap := GetPages()
-	var pages []Page
-	for _, v := range pageMap {
-		pages = append(pages, v)
-	}
-	CleanStaticFolder()
-	CreateFolder("./static/posts", 0777)
-	CreateFolder("./static/pages", 0777)
-	CopyAssetsToStaticFolder()
-	SpawnStaticPosts(posts)
-	SpawnArchive(posts)
-	SpawnStaticPages(pages)
-	SpawnIndexPage()
-	GenSiteMap(pages, posts)
+	GenSiteMap(posts, outputPath)
+
 	fmt.Println("Blog Spawn Success!")
-	fmt.Println("http server started on [::]:" + strconv.Itoa(config.Port))
-
-	http.Handle("/", http.FileServer(http.Dir("./static")))
-	err := http.ListenAndServe(":"+strconv.Itoa(config.Port), nil)
-	checkError(err)
 }
