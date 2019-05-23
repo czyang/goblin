@@ -70,9 +70,9 @@ func GetTime(dateStr string) time.Time {
 }
 
 // GetPosts get the posts from input/posts. All posts are markdown format.
-func GetPosts(inputPath string) map[string]Post {
+func GetPosts(postsPath string) map[string]Post {
 	postMap := make(map[string]Post)
-	files, _ := filepath.Glob(inputPath + "/posts/*")
+	files, _ := filepath.Glob(postsPath + "/*")
 
 	for _, f := range files {
 		fileRead, _ := ioutil.ReadFile(f)
@@ -92,12 +92,12 @@ func GetPosts(inputPath string) map[string]Post {
 }
 
 // SpawnStaticPosts generate all static posts which are HTML.
-func SpawnStaticPosts(inputPath string, outputPath string, posts []Post) {
+func SpawnStaticPosts(templatePath string, outputPath string, posts []Post) {
 	for _, v := range posts {
 		pathString := path.Join(outputPath, "/posts/"+v.MetaData.Permanent+".html")
 		f, err := os.Create(pathString)
 		checkError(err)
-		t, err := template.ParseFiles(inputPath + "/tmpl/post_layout.html")
+		t, err := template.ParseFiles(templatePath + "/post_layout.html")
 		checkError(err)
 		if err := t.Execute(f, struct {
 			Post   *Post

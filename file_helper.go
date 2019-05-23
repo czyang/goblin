@@ -70,9 +70,9 @@ func CopyFile(srcPath string, dstPath string) (err error) {
 }
 
 // CopyAssetsToStaticFolder copy assets folder to static folder.
-func CopyAssetsToStaticFolder(inputPath string, outputPath string) {
-	CopyFolder(inputPath+"/tmpl/assets/", outputPath+"/assets/")
-	CopyFolder(inputPath+"/attachment/", outputPath+"/attachment/")
+func CopyAssetsToStaticFolder(templatePath string, postsPath string, outputPath string) {
+	CopyFolder(templatePath+"/assets/", outputPath+"/assets/")
+	CopyFolder(postsPath+"/attachment/", outputPath+"/attachment/")
 }
 
 // CreateFolder create a new folder.

@@ -6,8 +6,8 @@ import (
 )
 
 // GetConfig read the config file to the Config object.
-func GetConfig(inputPath string) Config {
-	f, err := os.Open(inputPath + "/config.json")
+func GetConfig() Config {
+	f, err := os.Open("./config.json")
 	checkError(err)
 	decoder := json.NewDecoder(f)
 	configObj := Config{}

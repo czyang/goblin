@@ -13,7 +13,7 @@ body {
     padding-left: 10px;
     display:block;
     max-width: 740px;
-    mini-width: 300px;
+    min-width: 300px;
 }
 
 .nav-img {

@@ -9,32 +9,28 @@ import (
 var config Config
 
 func main() {
-	inputPathPtr := flag.String("input", "", "file path(string)")
+	postsPathPtr := flag.String("posts", "", "file path(string)")
+	templatePathPtr := flag.String("template", "", "file path(string)")
 	outputPathPtr := flag.String("output", "", "file path(string)")
 	flag.Parse()
-	inputPath := *inputPathPtr
+	postsPath := *postsPathPtr
+	templatePath := *templatePathPtr
 	outputPath := *outputPathPtr
-	fmt.Println("inputPathPtr:", inputPath, "outputPathPtr:", outputPath)
 
-	config = GetConfig(inputPath)
+	config = GetConfig()
 
-	fmt.Println(0)
-	postMap := GetPosts(inputPath)
-	fmt.Println(1)
+	postMap := GetPosts(postsPath)
 	var posts []Post
 	for _, v := range postMap {
 		posts = append(posts, v)
 	}
 
-	fmt.Println(1)
 	sort.Sort(Posts(posts))
 	CleanFolder(outputPath)
-	fmt.Println(2)
 	CreateFolder(outputPath+"/posts", 0755)
-	CopyAssetsToStaticFolder(inputPath, outputPath)
-	fmt.Println(3)
-	SpawnStaticPosts(inputPath, outputPath, posts)
-	SpawnIndex(outputPath, inputPath, posts)
+	CopyAssetsToStaticFolder(templatePath, postsPath, outputPath)
+	SpawnStaticPosts(templatePath, outputPath, posts)
+	SpawnIndex(outputPath, templatePath, posts)
 
 	GenSiteMap(posts, outputPath)
 

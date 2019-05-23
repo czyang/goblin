@@ -10,11 +10,11 @@ import (
 )
 
 // SpawnIndex generate archive page from template.
-func SpawnIndex(outputPath string, inputPath string, posts []Post) {
+func SpawnIndex(outputPath string, templatePath string, posts []Post) {
 	pathString := path.Join(outputPath, "/posts/"+"index"+".html")
 	f, err := os.Create(pathString)
 	checkError(err)
-	t, err := template.ParseFiles(inputPath + "/tmpl/archive_layout.html")
+	t, err := template.ParseFiles(templatePath + "/archive_layout.html")
 	checkError(err)
 
 	archivePage := ArchivePage{
