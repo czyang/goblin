@@ -1,4 +1,4 @@
-# ![alt text](./source/attachment/goblin_icon.png "Logo Title Text 1") Goblin 
+# ![ICON](./goblin.png "ICON") Goblin 
 
 ![travis-ci-status-icon](https://travis-ci.org/czyang/goblin.svg?branch=master "Build Status")
 [![Go Report Card](https://goreportcard.com/badge/github.com/czyang/goblin)](https://goreportcard.com/report/github.com/czyang/goblin)
