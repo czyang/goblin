@@ -5,7 +5,7 @@
 
 ** A Golang static blog generator. **
 
-Showcase: https://codingmelody.com/blog
+Showcase: https://codingmelody.com/blog/posts/index.html
 
 Goblin is a **Minimal** static pages generator Golang app which generate pages from markdown files with little extra JSON header.
 
