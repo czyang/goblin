@@ -1,0 +1,14 @@
+{
+	"comment": "",
+	"ignore": "",
+	"package": [
+		{
+			"checksumSHA1": "qhF/UzOgRLiAFmTfP8lumKETzBo=",
+			"origin": "github.com/czyang/goblin/vendor/github.com/russross/blackfriday",
+			"path": "github.com/russross/blackfriday",
+			"revision": "a925a152c144ea7de0f451eaf2f7db9e52fa005a",
+			"revisionTime": "2019-06-16T19:52:46Z"
+		}
+	],
+	"rootPath": "github.com/czyang/goblin"
+}
