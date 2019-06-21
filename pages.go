@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/json"
 	"html/template"
-	"io/ioutil"
 	"os"
 	"path"
 	"path/filepath"
@@ -37,11 +35,7 @@ func GetPages(inputPath string) map[string]Page {
 	pageMap := make(map[string]Page)
 	files, _ := filepath.Glob(inputPath + "/pages/*")
 	for _, f := range files {
-		fileRead, _ := ioutil.ReadFile(f)
-		jsonHeadBytes, mdBytes := ExtractMetaJSONStr(fileRead)
-		postMeta := new(PostMeta)
-		json.Unmarshal(jsonHeadBytes, &postMeta)
-		articleContent := template.HTML(string(MarkdownBlog(mdBytes)))
+		articleContent, postMeta := MarkdownFileToHTML(f)
 		pageMap[postMeta.Permanent] = Page{Content: articleContent, MetaData: *postMeta,
 			CreateDate: GetTime(postMeta.CreateDate), ModifyDate: GetTime(postMeta.ModifyDate)}
 	}

@@ -1,13 +1,12 @@
 {
 	"comment": "",
-	"ignore": "",
+	"ignore": "test",
 	"package": [
 		{
-			"checksumSHA1": "qhF/UzOgRLiAFmTfP8lumKETzBo=",
-			"origin": "github.com/czyang/goblin/vendor/github.com/russross/blackfriday",
-			"path": "github.com/russross/blackfriday",
-			"revision": "a925a152c144ea7de0f451eaf2f7db9e52fa005a",
-			"revisionTime": "2019-06-16T19:52:46Z"
+			"checksumSHA1": "tpW0qDtv0WW0S9rWHxVMYSOmQTI=",
+			"path": "github.com/snabb/sitemap",
+			"revision": "ac70ad656cd7f36cc5623306806a3583707c9a56",
+			"revisionTime": "2018-11-17T22:37:55Z"
 		}
 	],
 	"rootPath": "github.com/czyang/goblin"

@@ -62,7 +62,7 @@ p {
 
 .paragraph {
   word-wrap: break-word;
-  margin: 0px;
+  margin: 0;
 }
 
 .title {
@@ -108,7 +108,7 @@ p {
   position: relative;
   float: left;
   list-style: none;
-  margin: auto 0px;
+  margin: auto 0;
   padding: 5px 0 0 0;
   vertical-align: middle;
 }
@@ -133,11 +133,16 @@ p {
 
 code {
   font-size: 14px;
-  display: block;
   overflow-x: auto;
   padding: 0.5em;
   color: #333;
   background: #f8f8f8;
+  width: 100%;
+  display:inline;
+}
+
+pre code {
+  display: block;
 }
 
 .archive-li {

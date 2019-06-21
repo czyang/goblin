@@ -1,31 +1,20 @@
 package main
 
-import "github.com/russross/blackfriday"
+import (
+	"encoding/json"
+	"gopkg.in/russross/blackfriday.v2"
+	"html/template"
+	"io/ioutil"
+)
 
-const blogHTMLFlags = 0 |
-	blackfriday.HTML_USE_XHTML |
-	blackfriday.HTML_USE_SMARTYPANTS |
-	blackfriday.HTML_SMARTYPANTS_FRACTIONS |
-	blackfriday.HTML_SMARTYPANTS_DASHES |
-	blackfriday.HTML_SMARTYPANTS_LATEX_DASHES |
-	blackfriday.HTML_SMARTYPANTS_ANGLED_QUOTES |
-	blackfriday.HTML_HREF_TARGET_BLANK
-
-const commonExtensions = 0 |
-	blackfriday.EXTENSION_NO_INTRA_EMPHASIS |
-	blackfriday.EXTENSION_TABLES |
-	blackfriday.EXTENSION_FENCED_CODE |
-	blackfriday.EXTENSION_AUTOLINK |
-	blackfriday.EXTENSION_STRIKETHROUGH |
-	blackfriday.EXTENSION_SPACE_HEADERS |
-	blackfriday.EXTENSION_HEADER_IDS |
-	blackfriday.EXTENSION_BACKSLASH_LINE_BREAK |
-	blackfriday.EXTENSION_DEFINITION_LISTS
-
-// MarkdownBlog Custom Markdown process function for blog, inherited from MarkdownCommon.
-func MarkdownBlog(input []byte) []byte {
-	// set up the HTML renderer
-	renderer := blackfriday.HtmlRenderer(blogHTMLFlags, "", "")
-	return blackfriday.MarkdownOptions(input, renderer, blackfriday.Options{
-		Extensions: commonExtensions})
+// MarkdownFileToHTML Generate HTML string from giving file
+func MarkdownFileToHTML(fileName string) (template.HTML, *PostMeta) {
+	fileRead, _ := ioutil.ReadFile(fileName)
+	jsonHeadBytes, mdBytes := ExtractMetaJSONStr(fileRead)
+	mdBytes = TrimTitleLine(mdBytes)
+	postMeta := new(PostMeta)
+	if err := json.Unmarshal(jsonHeadBytes, &postMeta); err {
+		checkError(err)
+	}
+	return template.HTML(blackfriday.Run(mdBytes)), postMeta
 }

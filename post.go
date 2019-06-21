@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/json"
 	"html/template"
-	"io/ioutil"
 	"log"
 	"os"
 	"path"
@@ -75,12 +73,7 @@ func GetPosts(postsPath string) map[string]Post {
 	files, _ := filepath.Glob(postsPath + "/*")
 
 	for _, f := range files {
-		fileRead, _ := ioutil.ReadFile(f)
-		jsonHeadBytes, mdBytes := ExtractMetaJSONStr(fileRead)
-		mdBytes = TrimTitleLine(mdBytes)
-		postMeta := new(PostMeta)
-		json.Unmarshal(jsonHeadBytes, &postMeta)
-		articleContent := template.HTML(string(MarkdownBlog(mdBytes)))
+		articleContent, postMeta := MarkdownFileToHTML(f)
 		extension := filepath.Ext(f)
 		if extension != ".md" {
 			continue
