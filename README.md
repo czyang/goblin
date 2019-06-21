@@ -1,6 +1,6 @@
 # ![ICON](./goblin.png "ICON") Goblin 
 
-![travis-ci-status-icon](https://travis-ci.org/czyang/goblin.svg?branch=master "Build Status")
+[![Build Status](https://travis-ci.org/gin-gonic/gin.svg)](https://travis-ci.org/czyang/goblin)
 [![Go Report Card](https://goreportcard.com/badge/github.com/czyang/goblin)](https://goreportcard.com/report/github.com/czyang/goblin)
 
 ** A Golang static blog generator. **
