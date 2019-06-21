@@ -7,6 +7,12 @@
 			"path": "github.com/snabb/sitemap",
 			"revision": "ac70ad656cd7f36cc5623306806a3583707c9a56",
 			"revisionTime": "2018-11-17T22:37:55Z"
+		},
+		{
+			"checksumSHA1": "tI/ToPDECF8HQlpJP/omBQF0igw=",
+			"path": "gopkg.in/russross/blackfriday.v2",
+			"revision": "d3b5b032dc8e8927d31a5071b56e14c89f045135",
+			"revisionTime": "2018-09-20T17:16:15Z"
 		}
 	],
 	"rootPath": "github.com/czyang/goblin"
