@@ -1,0 +1,8 @@
+github.com/shurcooL/sanitized_anchor_name v1.0.0 h1:PdmoCO6wvbs+7yrJyMORt4/BmY5IYyJwS/kOiWx8mHo=
+github.com/shurcooL/sanitized_anchor_name v1.0.0/go.mod h1:1NzhyTcUVG4SuEtjjoZeVRXNmyL/1OwPU0+IJeTBvfc=
+github.com/snabb/diagio v0.0.0-20170305182244-0ef68e3dbf01 h1:aRo8cSRou2qrhengtKsw7m1OHxV9/JPczsTLRc5nz5I=
+github.com/snabb/diagio v0.0.0-20170305182244-0ef68e3dbf01/go.mod h1:ZyGaWFhfBVqstGUw6laYetzeTwZ2xxVPqTALx1QQa1w=
+github.com/snabb/sitemap v0.0.0-20170716080924-036d02a8f108 h1:qA/4CyKYgSlJyGaONyPCeIwYc5p+BHBjuJbI3a1hW6w=
+github.com/snabb/sitemap v0.0.0-20170716080924-036d02a8f108/go.mod h1:NkYN9/5dboCWl3kEzEBy0ihhK0kTq5l7eQiID36t4ME=
+gopkg.in/russross/blackfriday.v2 v2.0.0 h1:+FlnIV8DSQnT7NZ43hcVKcdJdzZoeCmJj4Ql8gq5keA=
+gopkg.in/russross/blackfriday.v2 v2.0.0/go.mod h1:6sSBNz/GtOm/pJTuh5UmBK2ZHfmnxGbl2NZg1UliSOI=
