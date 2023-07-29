@@ -44,14 +44,14 @@ sudo chmod -R 755 /var/www/codingmelody.com
 
 ### Run
 
-Run Goblin for from Go folder:
+Example:
 ```bash
-goblin -posts=./input_folder/posts -template=./input_folder/tmpl  -output=/var/www/codingmelody.com/public_html
+goblin -posts=./input_folder/posts -template=./input_folder/tmpl  -output=/var/www/codingmelody.com/public_html -config=./config.json
 ```
 
 Run Goblin for from Go folder:
 ```bash
-go run . -posts=./input_folder/posts -template=./input_folder/tmpl  -output=./output_folder
+go run . -posts=./input_folder/posts -template=./input_folder/tmpl  -output=./output_folder -config=./config.json
 ```
 
 #### License

@@ -12,12 +12,14 @@ func main() {
 	postsPathPtr := flag.String("posts", "", "file path(string)")
 	templatePathPtr := flag.String("template", "", "file path(string)")
 	outputPathPtr := flag.String("output", "", "file path(string)")
+	configPathPtr := flag.String("config", "", "file path(string)")
 	flag.Parse()
 	postsPath := *postsPathPtr
 	templatePath := *templatePathPtr
 	outputPath := *outputPathPtr
+	configPath := *configPathPtr
 
-	config = GetConfig()
+	config = GetConfig(configPath)
 
 	postMap := GetPosts(postsPath)
 	var posts []Post
