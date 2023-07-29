@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"log"
 	"gopkg.in/yaml.v2"
-	"fmt"
 )
 
 // MarkdownFileToHTML Generate HTML string from giving file
@@ -21,8 +20,6 @@ func MarkdownFileToHTML(fileName string) (template.HTML, *PostMeta) {
 		log.Println(fileName)
 		panic(err)
 	}
-
-	fmt.Printf("%+v\n", postMeta)
 
 	return template.HTML(blackfriday.Run(mdBytes)), postMeta
 }

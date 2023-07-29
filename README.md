@@ -9,27 +9,48 @@ Showcase: https://codingmelody.com/blog/posts/index.html
 
 Goblin is a **Minimal** static pages generator Golang app which generate pages from markdown files with little extra JSON header.
 
-#### Installation
-```sh
-# To install
-go get -u github.com/czyang/goblin
+### Install Go if needed
+```bash
+sudo apt update
+sudo apt install golang-go
 ```
 
-#### Usage
+### Install Goblin
+```bash
+git clone https://github.com/czyang/goblin.git
 
-```sh
-.
-├── goblin          # goblin program
-├── config.js       # config for program
-├── posts           # Your files.
-│   ├── attachment  # Images / Downloadable files etc.
-│   └── *.md        # Posts
-└── tmpl            # Your sites template.
+cd goblin.git
+
+go build -o goblin .
+
+# [optional]
+sudo mv goblin /usr/local/bin/
 ```
-`
 
-Run Goblin like this:
-```sh
+### Setup a static folder
+```bash
+sudo mkdir -p /var/www/yourwebsite.com/public_html
+
+sudo chown -R $USER:$USER /var/www/yourwebsite.com/public_html
+sudo chmod -R 755 /var/www/yourwebsite.com
+
+
+
+sudo mkdir -p /var/www/codingmelody.com/public_html
+
+sudo chown -R $USER:$USER /var/www/codingmelody.com/public_html
+sudo chmod -R 755 /var/www/codingmelody.com
+```
+
+### Run
+
+Run Goblin for from Go folder:
+```bash
+goblin -posts=./input_folder/posts -template=./input_folder/tmpl  -output=/var/www/codingmelody.com/public_html
+```
+
+Run Goblin for from Go folder:
+```bash
 go run . -posts=./input_folder/posts -template=./input_folder/tmpl  -output=./output_folder
 ```
 

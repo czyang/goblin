@@ -69,7 +69,8 @@ func CopyFile(srcPath string, dstPath string) (err error) {
 	return
 }
 
-func CopyAssetsAndPostMDToStaticFolder(templatePath string, postsPath string, outputPath string) {
+func CopyAssetsAndPostMDToStaticFolder(templatePath string, postsPath string, 
+	outputPath string) {
 	CopyFolder(templatePath+"/assets/", outputPath+"/posts/assets/")
 	CopyFolder(postsPath+"/assets/", outputPath+"/posts/assets/")
 }
