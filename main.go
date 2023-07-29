@@ -28,7 +28,7 @@ func main() {
 	sort.Sort(Posts(posts))
 	CleanFolder(outputPath)
 	CreateFolder(outputPath+"/posts", 0755)
-	CopyAssetsToStaticFolder(templatePath, postsPath, outputPath)
+	CopyAssetsAndPostMDToStaticFolder(templatePath, postsPath, outputPath)
 	SpawnStaticPosts(templatePath, outputPath, posts)
 	SpawnIndex(outputPath, templatePath, posts)
 

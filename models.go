@@ -15,13 +15,13 @@ type Post struct {
 
 // PostMeta meta data struct of the Post
 type PostMeta struct {
-	Title      string   `json:"title"`
-	Tags       []string `json:"tags"`
-	CreateDate string   `json:"createDate"`
-	ModifyDate string   `json:"modifyDate"`
-	Categories []string `json:"categories"`
-	Permanent  string   `json:"permanent"`
-	Author     string   `json:"author"`
+	Title      string   `yaml:"title"`
+	Tags       []string `yaml:"tags"`
+	CreateDate string   `yaml:"createDate"`
+	ModifyDate string   `yaml:"modifyDate"`
+	Categories []string `yaml:"categories"`
+	Permanent  string   `yaml:"permanent"`
+	Author     string   `yaml:"author"`
 }
 
 // Page page struct.

@@ -7,6 +7,7 @@ import (
 	"path"
 	"path/filepath"
 	"time"
+	"bytes"
 )
 
 // Sort posts.
@@ -22,22 +23,19 @@ func (s Posts) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
 
-// ExtractMetaJSONStr extract the page's meta data from the json string which
+// ExtractMetaHeaderStr extract the page's meta data from the yaml string which
 // on the header of the article.
-func ExtractMetaJSONStr(bytes []byte) ([]byte, []byte) {
-	bracketCount := 0
+func ExtractMetaHeaderStr(input []byte) ([]byte, []byte) {
+    separator := []byte("---")
+    parts := bytes.SplitN(input, separator, 3)
 
-	for index, byte := range bytes {
-		if byte == '{' {
-			bracketCount++
-		} else if byte == '}' {
-			bracketCount--
-			if bracketCount == 0 {
-				return bytes[:index+1], bytes[index+1:]
-			}
-		}
-	}
-	return nil, nil
+    if len(parts) < 3 {
+        // Not enough separators were found.
+        return nil, nil
+    }
+
+    // Trim spaces before returning
+    return bytes.TrimSpace(parts[1]), bytes.TrimSpace(parts[2])
 }
 
 // TrimTitleLine trim off the meta data string.

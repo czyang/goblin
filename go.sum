@@ -4,5 +4,9 @@ github.com/snabb/diagio v0.0.0-20170305182244-0ef68e3dbf01 h1:aRo8cSRou2qrhengtK
 github.com/snabb/diagio v0.0.0-20170305182244-0ef68e3dbf01/go.mod h1:ZyGaWFhfBVqstGUw6laYetzeTwZ2xxVPqTALx1QQa1w=
 github.com/snabb/sitemap v0.0.0-20170716080924-036d02a8f108 h1:qA/4CyKYgSlJyGaONyPCeIwYc5p+BHBjuJbI3a1hW6w=
 github.com/snabb/sitemap v0.0.0-20170716080924-036d02a8f108/go.mod h1:NkYN9/5dboCWl3kEzEBy0ihhK0kTq5l7eQiID36t4ME=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
+gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/russross/blackfriday.v2 v2.0.0 h1:+FlnIV8DSQnT7NZ43hcVKcdJdzZoeCmJj4Ql8gq5keA=
 gopkg.in/russross/blackfriday.v2 v2.0.0/go.mod h1:6sSBNz/GtOm/pJTuh5UmBK2ZHfmnxGbl2NZg1UliSOI=
+gopkg.in/yaml.v2 v2.4.0 h1:D8xgwECY7CYvx+Y2n4sBz93Jn9JRvxdiyyo8CTfuKaY=
+gopkg.in/yaml.v2 v2.4.0/go.mod h1:RDklbk79AGWmwhnvt/jBztapEOGDOx6ZbXqjP6csGnQ=

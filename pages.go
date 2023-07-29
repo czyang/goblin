@@ -36,8 +36,11 @@ func GetPages(inputPath string) map[string]Page {
 	files, _ := filepath.Glob(inputPath + "/pages/*")
 	for _, f := range files {
 		articleContent, postMeta := MarkdownFileToHTML(f)
-		pageMap[postMeta.Permanent] = Page{Content: articleContent, MetaData: *postMeta,
-			CreateDate: GetTime(postMeta.CreateDate), ModifyDate: GetTime(postMeta.ModifyDate)}
+		pageMap[postMeta.Permanent] = 
+		Page{Content: articleContent, 
+			MetaData: *postMeta, 
+			CreateDate: GetTime(postMeta.CreateDate), 
+			ModifyDate: GetTime(postMeta.ModifyDate)}
 	}
 	return pageMap
 }
