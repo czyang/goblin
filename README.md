@@ -53,5 +53,9 @@ Run Goblin for from Go folder:
 go run . -posts=./input_folder/posts -template=./input_folder/tmpl  -output=./output_folder -config=./config.json
 ```
 
+### Arch
+![Goblin drawio](https://github.com/czyang/goblin/assets/830725/3beceae9-7c5e-413e-b269-fac4442bf095)
+
+
 #### License
 Golbin is distributed under the [MIT License](./LICENSE.txt)
