@@ -6,6 +6,7 @@
 **A Golang static blog generator.**
 
 Showcase: https://codingmelody.com
+All my blog posts managed by Github as a repo, and I can CRUD the articls inside the Github repo, [a script](https://github.com/czyang/goblin-den/blob/main/fire-ball.sh) will sync data at every 5m: https://github.com/czyang/goblin-den
 
 Goblin is a **Minimal** static pages generator Golang app which generate pages from markdown files with little extra JSON header.
 
