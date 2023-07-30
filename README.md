@@ -3,9 +3,9 @@
 [![Build Status](https://travis-ci.org/gin-gonic/gin.svg)](https://travis-ci.org/czyang/goblin)
 [![Go Report Card](https://goreportcard.com/badge/github.com/czyang/goblin)](https://goreportcard.com/report/github.com/czyang/goblin)
 
-** A Golang static blog generator. **
+**A Golang static blog generator.**
 
-Showcase: https://codingmelody.com/blog/posts/index.html
+Showcase: https://codingmelody.com
 
 Goblin is a **Minimal** static pages generator Golang app which generate pages from markdown files with little extra JSON header.
 
