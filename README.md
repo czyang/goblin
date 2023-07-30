@@ -35,9 +35,9 @@ sudo chown -R $USER:$USER /var/www/yourwebsite.com/public_html
 sudo chmod -R 755 /var/www/yourwebsite.com
 
 
-
+# Create a folder for holding static files
 sudo mkdir -p /var/www/codingmelody.com/public_html
-
+# Modify the permission
 sudo chown -R $USER:$USER /var/www/codingmelody.com/public_html
 sudo chmod -R 755 /var/www/codingmelody.com
 ```
