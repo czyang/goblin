@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"io/ioutil"
+	"log"
 )
 
 // logFatalIfError logs the error and exits if there's an error.
