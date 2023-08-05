@@ -5,19 +5,13 @@ import (
 	"os"
 )
 
-// GetConfig reads the config file into a Config object.
+// GetConfig read the config file to the Config object.
 func GetConfig(configPath string) Config {
 	f, err := os.Open(configPath)
-	if err != nil {
-		logFatalIfError(err)
-	}
-	defer f.Close()
-
+	checkError(err)
+	decoder := json.NewDecoder(f)
 	configObj := Config{}
-	err = json.NewDecoder(f).Decode(&configObj)
-	if err != nil {
-		logFatalIfError(err)
-	}
-
+	err = decoder.Decode(&configObj)
+	checkError(err)
 	return configObj
 }
