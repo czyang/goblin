@@ -9,32 +9,30 @@ import (
 var config Config
 
 func main() {
-	postsPathPtr := flag.String("posts", "", "file path(string)")
-	templatePathPtr := flag.String("template", "", "file path(string)")
-	outputPathPtr := flag.String("output", "", "file path(string)")
-	configPathPtr := flag.String("config", "", "file path(string)")
+	postsPath := flag.String("posts", "", "file path(string)")
+	templatePath := flag.String("template", "", "file path(string)")
+	outputPath := flag.String("output", "", "file path(string)")
+	configPath := flag.String("config", "", "file path(string)")
 	flag.Parse()
-	postsPath := *postsPathPtr
-	templatePath := *templatePathPtr
-	outputPath := *outputPathPtr
-	configPath := *configPathPtr
 
-	config = GetConfig(configPath)
+	config = GetConfig(*configPath)
 
-	postMap := GetPosts(postsPath)
-	var posts []Post
-	for _, v := range postMap {
-		posts = append(posts, v)
+	postMap := GetPosts(*postsPath)
+	posts := make([]Post, len(postMap))
+	i := 0
+	for _, post := range postMap {
+		posts[i] = post
+		i++
 	}
 
 	sort.Sort(Posts(posts))
-	CleanFolder(outputPath)
-	CreateFolder(outputPath+"/posts", 0755)
-	CopyAssetsAndPostMDToStaticFolder(templatePath, postsPath, outputPath)
-	SpawnStaticPosts(templatePath, outputPath, posts)
-	SpawnIndex(outputPath, templatePath, posts)
+	CleanFolder(*outputPath)
+	CreateFolder(*outputPath+"/posts", 0755)
+	CopyAssetsAndPostMDToStaticFolder(*templatePath, *postsPath, *outputPath)
+	SpawnStaticPosts(*templatePath, *outputPath, posts)
+	SpawnIndex(*outputPath, *templatePath, posts)
 
-	GenSiteMap(posts, outputPath)
+	GenSiteMap(posts, *outputPath)
 
 	fmt.Println("Blog Spawn Success!")
 }
