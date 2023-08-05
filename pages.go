@@ -39,8 +39,8 @@ func GetPages(inputPath string) map[string]Page {
 		pageMap[postMeta.Permanent] = 
 		Page{Content: articleContent, 
 			MetaData: *postMeta, 
-			CreateDate: ParseDate(postMeta.CreateDate), 
-			ModifyDate: ParseDate(postMeta.ModifyDate)}
+			CreateDate: GetTime(postMeta.CreateDate), 
+			ModifyDate: GetTime(postMeta.ModifyDate)}
 	}
 	return pageMap
 }
