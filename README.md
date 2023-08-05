@@ -56,7 +56,19 @@ sudo apt install golang-go
 ```bash
 git clone https://github.com/czyang/goblin.git
 
-cd goblin.git
+cd goblin
+
+go build -o goblin .
+
+# [optional]
+sudo mv goblin /usr/local/bin/
+```
+
+### Update Goblin
+```bash
+cd goblin
+
+git pull
 
 go build -o goblin .
 
