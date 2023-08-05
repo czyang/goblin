@@ -32,7 +32,7 @@ func GenSiteMap(posts Posts, outputPath string) {
 
 	pathString := path.Join(outputPath, "/posts/sitemap.xml")
 	f, err := os.Create(pathString)
-	checkError(err)
+	logFatalIfError(err)
 	sm.WriteTo(f)
 
 	PingSearchEngines()
