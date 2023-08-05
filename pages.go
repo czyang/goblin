@@ -11,9 +11,9 @@ import (
 func SpawnIndex(outputPath string, templatePath string, posts []Post) {
 	pathString := path.Join(outputPath, "/posts/"+"index"+".html")
 	f, err := os.Create(pathString)
-	checkError(err)
+	logFatalIfError(err)
 	t, err := template.ParseFiles(templatePath + "/archive_layout.html")
-	checkError(err)
+	logFatalIfError(err)
 
 	archivePage := ArchivePage{
 		Title: "Index",
