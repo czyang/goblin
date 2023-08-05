@@ -4,82 +4,75 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"log"
+	"io/ioutil"
 )
 
-// CleanFolder remove all files in a folder.
-func CleanFolder(folderPath string) {
-	d, err := os.Open(folderPath)
-	checkError(err)
-	defer d.Close()
-	names, err := d.Readdirnames(-1)
-	checkError(err)
-	for _, name := range names {
-		err = os.RemoveAll(filepath.Join(folderPath, name))
-		checkError(err)
+// logFatalIfError logs the error and exits if there's an error.
+func logFatalIfError(err error) {
+	if err != nil {
+		log.Fatal(err)
 	}
 }
 
-// CopyFolder make a duplicate folder.
-func CopyFolder(srcPath string, dstPath string) (err error) {
+// CleanFolder removes all files in a folder.
+func CleanFolder(folderPath string) {
+	err := os.RemoveAll(folderPath)
+	logFatalIfError(err)
+}
+
+// CopyFolder makes a duplicate folder.
+func CopyFolder(srcPath, dstPath string) {
 	srcInfo, err := os.Stat(srcPath)
-	checkError(err)
+	logFatalIfError(err)
 
 	err = os.MkdirAll(dstPath, srcInfo.Mode())
-	checkError(err)
+	logFatalIfError(err)
 
-	directory, err := os.Open(srcPath)
-	checkError(err)
-
-	objects, err := directory.Readdir(-1)
-	checkError(err)
+	objects, err := ioutil.ReadDir(srcPath)
+	logFatalIfError(err)
 
 	for _, obj := range objects {
-		src := srcPath + "/" + obj.Name()
-		dst := dstPath + "/" + obj.Name()
+		src := filepath.Join(srcPath, obj.Name())
+		dst := filepath.Join(dstPath, obj.Name())
 		if obj.IsDir() {
-			err = CopyFolder(src, dst)
-			checkError(err)
+			CopyFolder(src, dst)
 		} else {
-			err = CopyFile(src, dst)
-			checkError(err)
+			CopyFile(src, dst)
 		}
 	}
-	return
 }
 
-// CopyFile make a duplicate file.
-func CopyFile(srcPath string, dstPath string) (err error) {
+// CopyFile makes a duplicate file.
+func CopyFile(srcPath, dstPath string) {
 	src, err := os.Open(srcPath)
-	checkError(err)
+	logFatalIfError(err)
 	defer src.Close()
 
 	dst, err := os.Create(dstPath)
-	checkError(err)
+	logFatalIfError(err)
 	defer dst.Close()
 
 	_, err = io.Copy(dst, src)
-	checkError(err)
+	logFatalIfError(err)
 
 	srcInfo, err := os.Stat(srcPath)
-	checkError(err)
+	logFatalIfError(err)
 
 	err = os.Chmod(dstPath, srcInfo.Mode())
-	checkError(err)
-
-	return
+	logFatalIfError(err)
 }
 
-func CopyAssetsAndPostMDToStaticFolder(templatePath string, postsPath string, 
-	outputPath string) {
-	CopyFolder(templatePath+"/assets/", outputPath+"/posts/assets/")
-	CopyFolder(postsPath+"/assets/", outputPath+"/posts/assets/")
+func CopyAssetsAndPostMDToStaticFolder(templatePath, postsPath, outputPath string) {
+	CopyFolder(filepath.Join(templatePath, "assets"), filepath.Join(outputPath, "posts", "assets"))
+	CopyFolder(filepath.Join(postsPath, "assets"), filepath.Join(outputPath, "posts", "assets"))
 }
 
-// CreateFolder create a new folder.
+// CreateFolder creates a new folder.
 func CreateFolder(path string, mode os.FileMode) {
 	_, err := os.Stat(path)
-	os.IsNotExist(err)
-
-	err = os.Mkdir(path, mode)
-	checkError(err)
+	if os.IsNotExist(err) {
+		err = os.Mkdir(path, mode)
+		logFatalIfError(err)
+	}
 }
