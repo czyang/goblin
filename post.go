@@ -38,6 +38,13 @@ func TrimTitleLine(b []byte) []byte {
 	return nil
 }
 
+// Log fatal error if error is not nil.
+func logFatalIfError(err error) {
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
 // Parse date string into time.
 func ParseDate(dateStr string) time.Time {
 	t, err := time.Parse("2006-01-02", dateStr)
